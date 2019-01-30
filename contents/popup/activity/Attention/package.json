@@ -1,0 +1,20 @@
+{
+  "name": "Attention",
+  "productName": "주목",
+  "description": "비상교육-주목",
+  "version": "0.9.0",
+  "author": "VISANG Education,Inc.",
+  "main": "../Attention/Attention.html",
+  "window": {
+    "show": true,
+    "toolbar": false,
+    "width": 1280,
+    "height": 800,
+    "position": "center",
+    "frame": true,
+    "resizable": false
+  },
+  "dependencies": {
+    "fs-jetpack": "^0.6.4"
+  }
+}

@@ -1,0 +1,152 @@
+/* full laptops */
+@media (min-width:1351px)  {
+	
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width:1100px) and (max-width:1350px) {
+
+	/*  bottom nav */
+	.navBottom .bottom_menu_handle{height:31px; background-size:auto 31px !important; top:-25px;}
+	.navBottom{height:115px;}
+
+	.navBottom .menu_gnb .gnb{width:63px; height:71px; background-size:63px auto !important;}
+
+	.navBottom .menu_gnb .pagemove .bgGoto{width:60px; height:32px; background-size:60px auto !important; margin-top:30px}
+	.navBottom .menu_gnb .gnb.btnGoto{width:34px; height:38px; background-size:34px auto !important; margin-top:29px;}
+
+	.navBottom .logo{margin-right:20px;}
+	.navBottom .logo, .navBottom .logo img{height:41px;}
+	/*  bottom nav */
+
+	.quickMenu{bottom:120px;}
+	.quickMenu .qOpen{width:60px; height:62px; background-size:60px auto !important;}
+	.quickMenu .quickMenuContent{bottom:75px; right:5px;}
+	.quickMenu .quickMenuContent .qnb{width:152px; height:50px; background-size:152px auto !important;}
+
+	.btn_page_move{width:70px; height:70px; background-size:69px auto !important;}
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width:992px) and (max-width:1099px) {
+
+	/*  bottom nav */
+	.navBottom .bottom_menu_handle{height:31px; background-size:auto 31px !important; top:-25px;}
+	.navBottom{height:107px;}
+
+	.navBottom .menu_gnb .gnb{width:56px; height:63px; background-size:56px auto !important}
+
+	.navBottom .menu_gnb .pagemove .bgGoto{width:60px; height:32px; background-size:60px auto !important; margin-top:25px}
+	.navBottom .menu_gnb .gnb.btnGoto{width:34px; height:38px; background-size:34px auto !important; margin-top:24px;}
+	.navBottom .logo{margin-right:10px;}
+	.navBottom .logo, .navBottom .logo img{height:60px;}
+
+	.navBottom .menu_gnb .gnb_cell{width:18px;}
+	/*  bottom nav */
+
+	.quickMenu{bottom:110px;}
+	.quickMenu .qOpen{width:60px; height:62px; background-size:60px auto !important;}
+	.quickMenu .quickMenuContent{bottom:75px; right:5px;}
+	.quickMenu .quickMenuContent .qnb{width:152px; height:50px; background-size:152px auto !important;}
+
+	.btn_page_move{width:58px; height:58px; background-size:57px auto !important;}
+
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width:768px) and (max-width:991px) {
+
+	/*  bottom nav */
+	.navBottom .bottom_menu_handle{height:31px; background-size:auto 31px !important; top:-25px;}
+	.navBottom{height:87px;}
+
+	.navBottom .menu_gnb .gnb{width:44px; height:50px; background-size:44px auto !important; margin:18px 3px}
+
+	.navBottom .menu_gnb .pagemove .bgGoto{width:50px; height:27px; background-size:50px auto !important; margin-top:25px; font-size:14px}
+	.navBottom .menu_gnb .gnb.btnGoto{width:30px; height:34px; background-size:30px auto !important; margin-top:24px;}
+
+	.navBottom .logo{margin-right:10px; margin-top:8px;}
+	.navBottom .logo, .navBottom .logo img{height:60px;}
+
+	.navBottom .menu_gnb .gnb_cell{display:none;}
+	/*  bottom nav */
+
+	.quickMenu{bottom:90px;}
+	.quickMenu .qOpen{width:60px; height:62px; background-size:60px auto !important;}
+	.quickMenu .quickMenuContent{bottom:75px; right:5px;}
+	.quickMenu .quickMenuContent .qnb{width:152px; height:50px; background-size:152px auto !important;}
+
+	.btn_page_move{width:48px; height:48px; background-size:47px auto !important;}
+
+}
+
+/* Landscape phones and portrait tablets */
+@media (min-width:481px) and (max-width:767px) {
+
+	/*  bottom nav */
+	.navBottom .bottom_menu_handle{height:20px; background-size:auto 20px !important; top:-14px;}
+	.navBottom{height:55px; padding-top:10px;}
+
+	.navBottom .menu_gnb .gnb{width:30px; height:31px; background-size:30px auto !important; margin:5px 1px;}
+
+	.navBottom .menu_gnb .pagemove .bgGoto{width:30px; height:16px; background-size:30px auto !important; margin-top:11px; font-size:12px}
+	.navBottom .menu_gnb .gnb.btnGoto{width:20px; height:23px; background-size:20px auto !important; margin-top:10px;}
+
+	.navBottom .logo{margin-right:5px; margin-top:0px;}
+	.navBottom .logo, .navBottom .logo img{height:40px;}
+
+
+	.navBottom .menu_gnb .gnb_cell{display:none;}
+	/*  bottom nav */
+
+	.quickMenu{bottom:50px; right:10px}
+	.quickMenu .qOpen{width:50px; height:52px; background-size:50px auto !important;}
+	.quickMenu .quickMenuContent{bottom:65px; right:0px; -webkit-border-radius:12px; -moz-border-radius:12px; border-radius:12px;}
+	.quickMenu .quickMenuContent .qnb{width:100px; height:33px; background-size:100px auto !important;}
+
+	.btn_page_move{width:38px; height:38px; background-size:37px auto !important;}
+
+	.btnBoomMark{width:20px; height:31px; background-size:20px auto !important;}
+
+	.btnBoomMark.left							{left:10px;}
+	.btnBoomMark.right							{right:10px;}	
+}
+
+/* Portrait phones and smaller */
+@media (max-width:480px) {
+
+	/*  bottom nav */
+	.navBottom .bottom_menu_handle{height:20px; background-size:auto 20px !important; top:-14px;}
+	.navBottom{height:130px; padding-top:10px;}
+
+	.navBottom .menu_gnb .gnb{width:44px; height:50px; background-size:44px auto !important; margin:5px 2px}
+
+	.navBottom .menu_gnb .pagemove .bgGoto{width:50px; height:27px; background-size:50px auto !important; margin-top:11px; font-size:14px}
+	.navBottom .menu_gnb .gnb.btnGoto{width:20px; height:23px; background-size:20px auto !important; margin-top:14px;}
+
+	.navBottom .logo{margin-right:10px; margin-top:30px; margin-left:10px;}
+	.navBottom .logo, .navBottom .logo img{height:50px;}
+
+	.navBottom .menu_gnb .gnb_cell{display:none;}
+	/*  bottom nav */
+
+	.quickMenu{bottom:125px; right:10px}
+	.quickMenu .qOpen{width:50px; height:52px; background-size:50px auto !important;}
+	.quickMenu .quickMenuContent{bottom:65px; right:0px; -webkit-border-radius:12px; -moz-border-radius:12px; border-radius:12px;}
+	.quickMenu .quickMenuContent .qnb{width:100px; height:33px; background-size:100px auto !important;}
+
+	.btn_page_move{width:38px; height:38px; background-size:37px auto !important;}
+
+	.btnBoomMark{width:20px; height:31px; background-size:20px auto !important;}
+
+	.btnBoomMark.left							{left:3px;}
+	.btnBoomMark.right							{right:3px;}
+
+}
+
+
+/* Portrait tablets and small desktops */
+@media (max-width:991px) {
+	.pophelpModal .popCotentContainer .help_img				{display:inline-block; width:calc(100%); clear:both !important}
+	.pophelpModal .popCotentContainer .help_img:nth-child(1){margin-right:0px;}
+}

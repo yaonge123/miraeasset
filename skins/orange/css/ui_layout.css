@@ -1,0 +1,77 @@
+#wrap {height:100%;  position:relative;  background:#FFFFFF; }
+
+
+body{margin:0; padding:0; overflow:hidden; }
+
+dl,dt,dd,ul,ol,li{list-style:none; }
+div,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,p,form,fieldset,input,table,tr,th,td{margin:0; padding:0; }
+h1,h2,h3,h4,h5,h6{font-weight:normal; font-size:100%; padding:0; margin:0; }
+fieldset{border:none; }
+hr,caption{display:none; }
+strong{font-weight:normal; }
+em{font-style:normal; }
+legend{position:absolute; width:0; height:0; font-size:0; line-height:0; overflow:hidden; visibility:hidden; text-indent:-9999px; }
+
+img{vertical-align:middle; height:auto; }
+input,textarea,select,table{display:inline-block; vertical-align:middle; }
+
+input,textarea,select{font-size:14px; line-height:22px; border:0}
+ 
+input:focus,textarea:focus, select:focus{}
+
+*:focus {outline:none;}
+input[type=text]::-ms-clear{display:none !important;}​
+
+* {margin:0; padding:0; border:none;  -moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box;}
+
+
+.dim { display:none; position:absolute; top:0px; right:0px; width:100%; height:100%; background:RGBA(0,0,0,0.7); }
+
+.contents{}
+.contents .mainPopup{display:none; position:absolute; top:50%; left:50%; width:1000px; height:700px; margin-top:-350px; margin-left:-500px; border:5px solid #4c7ed9; border-radius:30px; z-index:1; background-color:#eff0f2; box-shadow:1px 1px 10px; }
+
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/* Modify Start ***************************************************************************************************************************/
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+/* viewportPopup - 확대 - 축소 */
+.viewportPopup{position:absolute; /*bottom:160px; right:50px; */ display:none; cursor:move; width:228px; height:260px; background:url('../img/popup/viewport.png') no-repeat;}
+
+.viewportPopup .naviPopTitleContainer{}
+.viewportPopup .naviPopTitleContainer p{display:none;}
+.viewportPopup .naviPopTitleContainer .naviClose{position:absolute; display:inline-block; top:27px; right:21px;}
+
+.viewportPopup #naviHandleArea{position:relative; margin-top:70px; margin-left:7px; width:214px; height:140px;  cursor:default;}
+.viewportPopup img{width:107px; height:140px; margin:0px; padding:0px; display:block; float:left;}
+
+.viewportPopup .naviPopContentContainer{position:absolute; left:0px; bottom:15px; width:100%; height:30px; padding:0px 15px;}
+.viewportPopup .naviPopContentContainer .newly{position:absolute; top:2px; right:10px; display:inline-block;}
+.viewportPopup .naviPopContentContainer .newly .zoomOut{display:inline-block; float:left; width:26px; height:26px; background:url('../img/popup/viewport_icon_zoomout.png') no-repeat; cursor:pointer; }
+.viewportPopup .naviPopContentContainer .newly .zoomTxt{display:inline-block; float:left; width:65px; vertical-align:middle; color:#fff; font-size:16px; line-height:26px; text-align:center; font-family:'HeummNemo';}
+.viewportPopup .naviPopContentContainer .newly .zoomIn{display:inline-block; float:left; width:26px; height:26px; background:url('../img/popup/viewport_icon_zoomin.png') no-repeat; cursor:pointer; }
+
+.viewportPopup .naviMoveHand{position:absolute; top:0px; left:0px; /*transform:translateX(-31px); */ left:-31px;}
+.viewportPopup .movehand{width:20px; height:30px; background:url('../img/popup/viewport_hand_01.png') no-repeat; cursor:pointer; border:0; outline:0;}
+.viewportPopup .movehand.active{width:20px; height:30px; background:url('../img/popup/viewport_hand_02.png') no-repeat; cursor:pointer;}
+
+/* 여기까지 확인 함 */
+
+/* messageContainer */
+.messageContainer{position:absolute; display:inline-block; background:#f37237; padding:4px; -webkit-border-right-radius:12px; -moz-border-radius:12px; border-radius:12px; 
+-moz-box-shadow:5px 20px 10px 5px rgba(0,0,0,0.1); -webkit-box-shadow:5px 20px 10px 5px rgba(0,0,0,0.1); box-shadow:5px 20px 10px 5px rgba(0,0,0,0.1);}
+.messageContainer li{display:none; width:450px; height:210px; background:#fff; -webkit-border-right-radius:10px; -moz-border-radius:10px; border-radius:10px; font-family:'HeummNemo'; font-size:24px; color:#222; text-align:center; padding-top:50px;}
+.messageContainer li:nth-child(2){display:inline-block;}
+
+.messageContainer .mbtn{position:absolute; display:inline-block; width:100px; height:50px; cursor:pointer; border:0; outline:0;}
+.messageContainer .messageOk{top:115px; left:50%; margin-left:-50px; background:url('../img/message/message_btn_ok.png') no-repeat;}
+.messageContainer .messageOk:hover{background:url('../img/message/message_btn_ok_over.png') no-repeat;}
+.messageContainer .messageYes{top:115px; left:50%; margin-left:-105px; background:url('../img/message/message_btn_yes.png') no-repeat;}
+.messageContainer .messageYes:hover{background:url('../img/message/message_btn_yes_over.png') no-repeat;}
+.messageContainer .messageNo{top:115px; left:50%; margin-left:5px; background:url('../img/message/message_btn_no.png') no-repeat;}
+.messageContainer .messageNo:hover{background:url('../img/message/message_btn_no_over.png') no-repeat;}
+
+@media(max-width:480px ){
+
+}
+ 

@@ -1,0 +1,234 @@
+* {
+	margin: 0;
+	padding: 0;
+    line-height: 1;
+    border: none;
+}
+ul {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+button {
+	outline: none;
+}
+input {
+    outline: none;
+    ime-mode: disabled;
+}
+img,
+div,
+button {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img {
+	pointer-events: none;
+}
+@font-face {
+	font-family: 'nanumS';
+	font-style: normal;
+	src: local('※'), url('font/NanumSquareEB.woff');
+}
+body {
+	background: #000000;
+	overflow: hidden;
+}
+#sikimi {
+	width: 1920px;
+	height: 1080px;
+	position: absolute;
+	/* top: calc(50% - 384px); */
+	/* left: calc(50% - 720px); */
+	overflow: hidden;
+	margin: 0 auto;
+	background: url('../images/input/bg.png') 0 0 no-repeat;
+}
+#sikimi .bg {
+	width: 1920px;
+	height: 1080px;
+	top: 0px;
+	left: 0px;
+	position: absolute;
+	/*background: url('../images/input/cloud.png') 0 0 no-repeat;*/
+}
+
+/* inputPage */
+
+.inputPage {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.inputPage > div {
+	position: absolute;
+}
+.inputPage > div.inputArea {
+	position: relative;
+	padding-top: 65px;
+    z-index: 1;
+    opacity: 0;
+}
+.inputPage .inputArea .inputBox {
+	width: 577px;
+	height: 531px;
+	text-align: center;
+	background: url('../images/input/inputbox.png') 0 0 no-repeat;
+	margin: 0 auto;
+	padding-top: 140px;
+}
+.inputPage .inputArea .inputBox input[type=text] {
+	width: 200px;
+	font-size: 150px;
+	font-family: 'nanumS';
+	color: #393e3c;
+	text-align: center;
+	overflow: hidden;
+	background: none;
+	border: none;
+	-webkit-ime-mode: disabled;
+	ime-mode: disabled;
+}
+.inputPage .inputArea .enterBtn {
+	position: absolute;
+	top: 382px;
+	left: 803px;
+	width: 295px;
+	height: 95px;
+	background: url('../images/input/enterbtn.png') 0 0 no-repeat;
+	cursor: pointer;
+    text-indent: -9999px;
+    opacity: 0;
+}
+.inputPage .inputArea .enterBtn:hover {
+	background: url('../images/input/enterbtn_o.png') 0 0 no-repeat;
+}
+
+/* resultPage */
+
+.resultPage {
+	display: none;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: url('../images/result/bg.png') 0 0 no-repeat;
+	box-sizing: border-box;
+	padding: 160px 70px;
+}
+.resultPage > div {
+	position: absolute;
+}
+.resultPage .randomList:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+.resultPage .randomList > li {
+	float: left;
+	width: 138px;
+	height: 121px;
+	font-size: 40px;
+	font-family: 'nanumS';
+	text-align: center;
+	line-height: 104px;
+	color: #fff;
+	background: url('../images/result/list_bg.png') no-repeat;
+	background-size: contain;
+	margin: 5px;
+}
+.resultPage .randomList > li.on {
+	color: #fff;
+	background: url('../images/result/list_bg2.png') no-repeat;
+	background-size: contain;
+}
+.resultPage .sunGroup {
+	display: none;
+	left: 0;
+	bottom: 50px;
+	width: 100%;
+	height: 420px;
+	z-index: 2;
+}
+.resultPage .sunGroup.on {
+	display: block;
+}
+.resultPage .sunGroup > div {
+	position: absolute;
+}
+.resultPage .sunGroup .sun {
+	top: 300px;
+	left: calc(50% - 171px);
+	width: 342px;
+	height: 346px;
+	background: url('../images/result/sun.png') 0 0 no-repeat;
+}
+
+.resultPage .result {
+	display: none;
+	top: 307px;
+	left: 807px;
+	width: 300px;
+	height: 430px;
+	line-height: 315px;
+	font-size: 100px;
+	font-family: 'nanumS';
+	text-align: center;
+	color: #fff;
+	background: url('../images/result/result.png') 0 0 no-repeat;
+	opacity: 0;
+}
+.resultPage .btnWrap {
+	left: 0;
+	right: 0;
+	bottom: 115px;
+	text-align: center;
+}
+.resultPage .btnWrap button {
+	position: absolute;
+	display: inline-block;
+	width: 276px;
+	height: 105px;
+	cursor: pointer;
+	text-indent: -9999px;
+}
+.resultPage .btnWrap button.startBtn {
+	top: -80px;
+	left: 660px;
+	width: 294px;
+	height: 95px;
+	background: url('../images/result/startbtn.png') 0 0 no-repeat;
+	margin-right: 10px;
+}
+.resultPage .btnWrap button.startBtn:hover {
+	background: url('../images/result/startbtn_o.png') 0 0 no-repeat;
+}
+.resultPage .btnWrap button.resetBtn {
+	top: -80px;
+	left: 980px;
+	width: 294px;
+	height: 95px;
+	background: url('../images/result/resetbtn.png') 0 0 no-repeat;
+}
+.resultPage .btnWrap button.resetBtn:hover {
+	background: url('../images/result/resetbtn_o.png') 0 0 no-repeat;
+}
+.closeBtn {
+	position: absolute;
+	top: 28px;
+	right: 24px;
+	width: 74px;
+	height: 80px;
+	border: none;
+	background: url('../images/closebtn.png') no-repeat;
+	cursor: pointer;
+	z-index: 100;
+	outline: 0;
+}
+.closeBtn {
+	background: url('../images/closebtn_on.png') no-repeat;
+}

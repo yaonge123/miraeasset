@@ -1,0 +1,296 @@
+/* Landscape tablets and medium desktops */
+@media (min-width:1100px) and (max-width:1400px) {
+	.navBottom{bottom:-110px; height:110px;}
+	.navBottom .menu_gnb .gnb_cell{height:100px; background-size:auto 100px !important;}
+
+	/* .navBottom .logo{width:56px; background-size:56px auto !important;} */
+	.navBottom .menu_gnb .gnb{width:66px; height:66px; background-size:66px auto !important; margin:20px 4px;}
+
+	.navBottom .menu_gnb .pagemove{margin-top:12px;}
+	.navBottom .menu_gnb .pagemove .gnb{width:34px; height:34px; background-size:34px 34px !important;}
+
+	.navBottom .menu_gnb .pagemove .bgGoto{width:69px; height:38px; background-size:auto 38px; font-size:19px; line-height:36px; margin-top:18px;}
+
+	.navBottom .bottom_menu_handle{background-size:auto 34px; top:-34px;}
+
+	.quickMenu{bottom:120px;}
+
+	.cbp-spmenu-bottom.cbp-spmenu-open {bottom: 110px;}
+
+	/* 확대창 */
+	#naviViewport {top: 5%; left: 5%;}
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width:992px) and (max-width:1099px) {
+	.navBottom{bottom:-100px; height:100px;}
+	.navBottom .menu_gnb .gnb_cell{height:90px; background-size:auto 90px !important;}
+
+	/* .navBottom .logo{width:46px; background-size:46px auto !important;} */
+	.navBottom .menu_gnb .gnb{width:60px; height:60px; background-size:60px auto !important; margin:20px 4px;}
+
+	.navBottom .menu_gnb .pagemove{margin-top:10px;}
+	.navBottom .menu_gnb .pagemove .gnb{width:30px; height:30px; background-size:30px 30px !important;}
+
+	.navBottom .menu_gnb .pagemove .bgGoto{width:69px; height:38px; background-size:auto 38px; font-size:19px; line-height:36px; margin-top:18px;}
+
+	.navBottom .bottom_menu_handle{background-size:auto 34px; top:-34px;}
+
+	.quickMenu{bottom:120px;}
+
+	.cbp-spmenu-bottom.cbp-spmenu-open {bottom: 100px;}	
+		
+	/* 확대창 */
+	#naviViewport {top: 5%; left: 5%;}
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width:768px) and (max-width:991px) {
+	.navBottom{bottom:-90px; height:90px;}
+	.navBottom .menu_gnb .gnb_cell{height:80px; background-size:auto 80px !important;}
+
+	/* .navBottom .logo{width:42px; background-size:42px auto !important; margin-right:4px; margin-top:26px;} */
+	.navBottom .menu_gnb .gnb{width:56px; height:56px; background-size:56px auto !important; margin:14px 2px;}
+
+	.navBottom .menu_gnb .pagemove{margin-top:6px; margin-left:6px; width:130px;}
+	.navBottom .menu_gnb .pagemove .gnb{width:28px; height:28px; background-size:28px 28px !important; margin:4px 2px;}
+
+	.navBottom .menu_gnb .pagemove .bgGoto{width:62px; height:30px; background-size:auto 30px; font-size:14px; line-height:30px; margin-top:3px;}
+
+	.navBottom .bottom_menu_handle{background-size:auto 30px; top:-32px;}
+
+	.quickMenu{bottom:100px;}
+
+	.cbp-spmenu-bottom.cbp-spmenu-open {bottom: 90px;}
+
+		
+	/* 확대창 */
+	#naviViewport {top: 5%; left: 5%;}
+
+	/* 진도관리 */
+	/* #popupProgressList {height: 95%; top: calc(50% - 180px) !important; left: calc(50% - 325px) !important;}
+	#popupProgressList .popContainer {height: 95%;}
+	#popupProgressList .popContainer .popCotentContainer {height: 80%;}
+	#popupProgressList .progressScroll li .progressCompleteTxt {width: 345px;}
+	#popupProgressList .popProgressComplete .popProgressCompleteBox {height: 90%;}
+	#popupProgressList .popProgressComplete .popProgressCompleteBox .side-list {left: 20px; top: 132px; width: 96%; }
+	#popupProgressList .popProgressComplete .popProgressCompleteBox .side-list .scrollable {width: 100%; height: 93%;}
+	#popupProgressList .popProgressCompleteBox .progressSelect {bottom: 26px; left: 19px; width: 628px; height: 47px; padding-top: 8px;}
+	#popupProgressList .popProgressCompleteBox .progressSelect .chk input[type=checkbox] + .ico {width: 75px; height: 30px; background-size: 75px auto;}
+	#popupProgressList .popProgressCompleteBox .progressDel {top: 6px; right: 20px; width: 90px; height: 35px; background-size: 85px auto;}
+	#popupProgressList .popProgressCompleteBox .progressIns {top: 6px; right: 120px; width: 85px; height: 35px; background-size: 85px auto;} */
+}
+
+/* Landscape phones and portrait tablets */
+@media (min-width:482px) and (max-width:767px) {
+	.navBottom{bottom:-134px; height:calc(50% - 30%);}
+	.navBottom .menu_gnb{padding-left:20px; padding-top:4px;}
+	.navBottom .menu_gnb .gnb_cell{display:none;}
+
+	/* .navBottom .logo{width:42px; background-size:42px auto !important; margin-right:4px; margin-top:12px; margin-left:20px;} */
+	.navBottom .menu_gnb .gnb{width:55px; height:55px; background-size:55px auto !important; margin:2px 0px;}
+
+	.navBottom .menu_gnb .pagemove{margin-top:10px; margin-left:6px;}
+	.navBottom .menu_gnb .pagemove .gnb{width:28px; height:28px; background-size:28px 28px !important; margin:4px 2px;}
+
+	.navBottom .menu_gnb .pagemove .bgGoto{width:62px; height:30px; background-size:auto 30px; font-size:14px; line-height:30px; margin-top:3px;}
+
+	.navBottom .bottom_menu_handle{background-size:auto 30px; top:-32px;}
+
+	.quickMenu{bottom:14%;}
+
+	.cbp-spmenu-bottom.cbp-spmenu-open {bottom: 134px;}	
+
+	/* 퀵 메뉴 */
+	.quickMenu .quickbtn .qbtn.btnQuickText {width: 210px;}
+	/* .quickMenu .quickbtn {width: 135px; height: 35px;}
+	.quickMenu .quickbtn .qbtn {font-size: 14px !important;}
+	.quickMenu .quickbtn .qbtn{width:135px; height:45px; background-size:135px auto !important;}
+	.quickMenu .quickMenuContent {top: -280px !important; right: 68px; margin-left: 65px !important;} */
+
+	/* #popupProgressList {height: 95%; top: calc(50% - 180px) !important; left: calc(50% - 325px) !important;}
+	#popupProgressList .popContainer {height: 95%;}
+	#popupProgressList .popContainer .popCotentContainer {height: 80%;}
+	#popupProgressList .progressScroll li .progressCompleteTxt {width: 345px;}
+	#popupProgressList .popProgressComplete .popProgressCompleteBox {height: 90%;}
+	#popupProgressList .popProgressComplete .popProgressCompleteBox .side-list {left: 20px; top: 132px; width: 96%; }
+	#popupProgressList .popProgressComplete .popProgressCompleteBox .side-list .scrollable {width: 100%; height: 93%;}
+	#popupProgressList .popProgressCompleteBox .progressSelect {bottom: 26px; left: 19px; width: 628px; height: 47px; padding-top: 8px;}
+	#popupProgressList .popProgressCompleteBox .progressSelect .chk input[type=checkbox] + .ico {width: 75px; height: 30px; background-size: 75px auto;}
+	#popupProgressList .popProgressCompleteBox .progressDel {top: 6px; right: 20px; width: 90px; height: 35px; background-size: 85px auto;}
+	#popupProgressList .popProgressCompleteBox .progressIns {top: 6px; right: 120px; width: 85px; height: 35px; background-size: 85px auto;} */
+	
+	/* 확대창 */
+	#naviViewport {top: 5%; left: 5%;}
+
+	/* 진도 관리 */
+	#popupProgressList {top: calc(50% - 48%) !important; left: calc(50% - 45%) !important; width: calc(100% - 10%); height: calc(100% - 5%);}
+	#popupProgressList .popProgressComplete {height: 100%;}
+	#popupProgressList .popProgressComplete .popCotentContainer {height: calc(100% - 19%);}
+}
+
+
+/* Portrait tablets and small desktops */
+@media (max-width:991px) {
+	/*.btnBoomMark{width:36px; height:61px; background-size:36px 61px !important;}*/
+
+	.quickMenu .qOpen{width:54px; height:56px; background-size:54px 56px !important;}
+	/* .quickMenu .quickMenuContent{bottom:75px; padding:6px 10px;} */
+	/* .quickMenu .quickbtn{width:160px; height:52px;} */
+	/* .quickMenu .quickbtn .qbtn{width:160px; height:52px; background-size:160px 52px !important;} */
+	/* .quickMenu .quickbtn:hover:before{width:160px; height:52px;} */
+
+	/* .quickMenu .quickbtn .quickOver:after{position:absolute; display:inline-block; content:''; right:-30px; top:110px; width:40px; height:52px; background:#efefef;} */
+
+	.btn_page_move{width:50px; height:63px; background-size:50px 63px !important;}
+
+	.cbp-spmenu-bottom.cbp-spmenu-open {bottom: 61px;}
+
+	/* 퀵 메뉴 */
+	.quickMenu .quickbtn .qbtn {font-size: 18px;}
+	.quickMenu .quickbtn .qbtn.btnQuickText {width: 210px;}
+	.quickMenu .quickMenuContent {margin-left: -5px;}
+	/* .quickMenu .quickMenuContent {top: -435px; right: 68px;} */
+}
+
+/* Portrait phones and smaller */
+@media (max-width:481px) {
+	.navBottom{bottom:-134px; height:134px;}
+	.navBottom .menu_gnb{padding-left:20px; padding-top:4px;}
+	.navBottom .menu_gnb .gnb_cell{display:none;}
+
+	/* .navBottom .logo{width:42px; background-size:42px auto !important; margin-right:4px; margin-top:12px;} */
+	.navBottom .menu_gnb .gnb{width:52px; height:56px; background-size:56px auto !important; margin:2px 0px;}
+
+	.navBottom .menu_gnb .pagemove{margin-top:6px; margin-left:6px;}
+	.navBottom .menu_gnb .pagemove .gnb{width:28px; height:28px; background-size:28px 28px !important; margin:4px 2px;}
+
+	.navBottom .menu_gnb .pagemove .bgGoto{width:62px; height:30px; background-size:auto 30px; font-size:14px; line-height:30px; margin-top:3px;}
+
+	.navBottom .bottom_menu_handle{background-size:auto 30px; top:-32px;}
+
+	/* 2019.01.15 왕예나 수정 */
+	.quickMenu{bottom:15%;}
+
+	.cbp-spmenu-bottom.cbp-spmenu-open {bottom: 134px;}	
+
+	.slidePopupContainer {width: 100%;}
+	/* 목차 */
+	#cbp-spmenu-s1 .slideListContent .side-list li.menu_sub{font-size: 18px;}
+	#cbp-spmenu-s1 .slideListContent .side-list li.menu_sub .menu_sub_contents .sub_txt{font-size: 18px;}
+
+	/* 내 목록 */
+	#cbp-spmenu-s3 .slideItemContent .itemTabContent {width: 100%;}
+	#cbp-spmenu-s3 .slideItemContent .itemTabMenu {width: 100%; padding-left: 8px; padding-top: 8px;}
+	#cbp-spmenu-s3 .slideItemContent .itemTabMenu > li {width: 50%; height: 37px;}
+	#cbp-spmenu-s3 .slideItemContent .itemTabMenu .itemTabImg02 {width: 100%; background-size: 95% auto;}
+	#cbp-spmenu-s3 .slideItemContent .itemTabMenu .itemTabImg03 {width: 100%; background-size: 95% auto;}
+	
+	#cbp-spmenu-s3 .itemTabContent .itemSelect {width: 100%;}
+
+	/* 내 목록 - 웹링크 */
+	#webLinkList {width: 96%;}
+	#webLinkList .side-list {width: 100%;}
+	#webLinkList li {margin: 0px 40px 0px 10px; width: 97%;}
+	#webLinkList p {width: 285px; }
+	#webLinkList .writeDate {left: 51%;}
+
+	#tabLinkList .side-list {width: 100%;}
+	#tabBookmarkList .side-list {width: 98%;}
+	#tabBookmarkList .side-list .slideBookmarksContent li {width: 50%;}
+	#tabBookmarkList .side-list .slideBookmarksContent .bookmarksTxt {width: 40%;}
+
+	/* 수업종료 창 */
+	#popupProgressNClose {width: 100%;top: calc(50% - 170px) !important; left: calc(100% - 95%) !important;}
+	#popupProgressNClose .popContainer.popProgressNClose {width: 90%;}
+	#popupProgressNClose .popProgressBoxNClose {width: 100%;}
+
+	/* 진도관리 */
+	#popupProgressList {width: 98%; top: calc(50% - 254px) !important; left: calc(100% - 99%) !important;}
+	#popupProgressList .popContainer {width: 100%;}
+	#popupProgressList .popContainer .popCotentContainer {width: 100%;}
+	#popupProgressList .popProgressCompleteBox .progressSelect {width: 95%;}
+	#popupProgressList .popProgressCompleteBox .progressSelect .chk {left: 10px;}
+	#popupProgressList .popProgressComplete .popProgressCompleteBox {width: 100%; background-size: 340px auto;}
+	#popupProgressList .popProgressCompleteBox .progressIns {top: 13px; right: 98px; width: 85px; height: 35px; background-size: 85px auto;}
+	#popupProgressList .popProgressCompleteBox .progressDel {top: 13px; right: 6px; width: 85px; height: 35px; background-size: 85px auto;}
+
+	#popupProgress {width: 90%; top:calc(50% - 185px) !important; left: calc(100% - 95%) !important;}
+	#popupProgress .popProgress {width: 100%;}
+	#popupProgress .popContainer .popTitleContainer {width: 100%;}
+	#popupProgress .popContainer .popCotentContainer .popProgressBox {width: 100%; background: url('../img/popup/progress_bg_popup.png') -55px -25px no-repeat; padding: 115px 0px 0px 0px; background-size: 425px auto;}
+	
+	#popupProgressList .progressScroll li {width: 55%; height: 50px; padding: 0px 0px 0px 20px; margin: 0px 0px 0px 0px; font-size: 15px;}
+	#popupProgressList .progressScroll li .chk input[type=checkbox] + .ico {width: 25px; height: 25px; background-size: 20px auto;}
+	#popupProgressList .progressScroll li .progressCompleteTxt {width: 50%;}
+	#popupProgressList .progressScroll li .progressCompleteTxt .pageNum {left: 122px; width: 65px;}
+	#popupProgressList .progressScroll li .progressCompleteTxt .date {left: 163px; width: 65px;}
+	#popupProgressList .popProgressCompleteBox .progressSav {float: none; width: 45px; height: 28px; background-size: 45px auto;}
+	#popupProgressList .popProgressCompleteBox .progressStu {float: none; width: 45px; height: 28px; background-size: 45px auto;}
+
+	/* 그리기 */
+	.drawing_pop.drawing_nomal {width: 260px; height: 240px; background-size: 260px 240px; }
+
+	.drawing_pop.drawing_nomal .drawing_pop_title {width: 100%; height: 39px;}
+	.drawing_pop.drawing_nomal .drawing_pop_title .btnClose {top: 8% !important; right: 0px !important; width: 15%; height: 15%; background-size: 16px auto;}
+	.drawing_pop.drawing_nomal .drawing_contents {width: 100%;}
+	.drawing_pop.drawing_nomal .drawing_contents .drawing_color {width: 100%;}
+	.drawing_pop.drawing_nomal .drawing_contents .line_height .line_1{margin-right: 10px;}
+	.drawing_pop.drawing_nomal .drawing_contents .line_height .line_2{margin-right: 10px;}
+	.drawing_pop.drawing_nomal .drawing_contents .line_height .line_3{margin-right: 10px;}
+	.drawing_pop.drawing_nomal .drawing_contents .line_height .line_4{margin-right: 10px;}
+	.drawing_pop.drawing_nomal .drawing_contents .drawing_oper .oper_value {float: none; font-size: 15px; padding-top: 10px;}
+
+	.drawing_pop.drawing_nomal .drawing_color_selector {width: 20%;}
+	.drawing_pop.drawing_nomal .drawing_color_selector .oper_title {font-size: 12px;}
+	.drawing_pop.drawing_nomal .drawing_contents .line_height {width: 35%; font-size: 12px; margin-left: 12px;}
+	.drawing_pop.drawing_nomal .drawing_contents .drawing_oper {width: 33%; margin-left: 0; padding-left: 5px;}
+	.drawing_pop.drawing_nomal .drawing_contents .drawing_oper .oper_title {font-size: 12px;}
+
+	.drawing_pop .drawing_contents .drawing_con_icon {width: 100%; margin-left: 0px; margin-top: 5px; padding-top: 16px; padding-bottom: 0;}
+	.drawing_pop .drawing_contents .drawing_con_icon div{width: 40px; height: 40px; background-size: 37px auto !important; margin: 0;}
+	.drawing_pop .drawing_pop_bottom {width: 50px; padding-top: 5px;}
+
+	/* 자료 링크 */
+	#popupStorage {width: 98%; top: calc(50% - 168px) !important; left: calc(100% - 95%) !important;}
+	#popupStorage .popMylink {width: 94%; height: 331px;}
+
+	/* 검색 */
+	#cbp-spmenu-s4 .slideSearchContent .topSearchBox {width: 100%;}
+	#cbp-spmenu-s4 .slideSearchContent .topSearchBox .searchInput {width: 100%;}
+	#cbp-spmenu-s4 .slideSearchContent .topSearchBox .searchInput input{width: 78%; height: 45px;}
+	#cbp-spmenu-s4 .slideSearchContent .topSearchBox .searchInput .searchBtn {width: 85px; background-size: 85px;}
+
+	#cbp-spmenu-s4 .slideSearchContent .side-list {width: 100%}
+	#cbp-spmenu-s4 .slideSearchContent .side-list .scrollable {width: 98%;}
+	#cbp-spmenu-s4 .slideSearchContent .searchPopup {padding: 0px 20px 0px 15px;}
+	#cbp-spmenu-s4 .slideSearchContent .searchPopup > li {width: 100%;}
+	#cbp-spmenu-s4 .slideSearchContent .searchPopup p {width: 67%; font-size:16px;}
+
+	/* 퀵 메뉴 */
+	.quickMenu .quickbtn {width: 140px; height: 45px;}
+	.quickMenu .quickbtn .qbtn {font-size: 16px !important;}
+	.quickMenu .quickbtn .qbtn{width:160px; height:45px; background-size:145px auto !important;}
+	.quickMenu .quickMenuContent {top: -375px; right: 68px; margin-left: 58px !important;}
+
+	/* 텍스트 선택 */
+	#popupTextSelector {width: 98%; top: calc(50% - 88px) !important; left: calc(100% - 99%) !important;}
+	#popupTextSelector .popSelectTxt {width: 100%; height: 182px;}
+	#popupTextSelector .popContainer .popCotentContainer {width: 100%; margin-top: 15px;}
+	#popupTextSelector .popSelectTxt .popSelectTxtBox {width: 100%; height: 88px; padding: 30px 0 0 0;background: url('../img/popup/popselect_txt_btn.png') 0px 0px no-repeat; background-size: 345px auto;}
+	#popupTextSelector .popSelectTxt .popSelectTxtBox .pbtn {background: transparent;}
+
+	/* 도움말 */
+	.pophelpModal .popTitleContainer .btnClose {right: 20px;}
+	.pophelpModal .popCotentContainer {height: calc(100% - 120px);}
+	.pophelpModal .popCotentContainer .popHelpModalBox {height: calc(100% - 55px);}
+
+	/* 확대창 */
+	#naviViewport {top: 10%; left: 5%;}
+}
+
+/* 2019.01.23 왕예나 추가 */
+@media (max-width:360px) {
+	.popProgressBoxNClose .btnSave,
+	.popProgressBoxNClose .btnNsave {background-size: 100px auto; width: 100px;}
+}

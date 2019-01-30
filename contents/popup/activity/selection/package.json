@@ -1,0 +1,20 @@
+{
+  "name": "Activity",
+  "productName": "활동",
+  "description": "비상교육-활동",
+  "version": "0.9.0",
+  "author": "VISANG Education,Inc.",
+  "main": "../Activity/Activity.html",
+  "window": {
+    "show": true,
+    "toolbar": false,
+    "width": 1280,
+    "height": 800,
+    "position": "center",
+    "frame": true,
+    "resizable": false
+  },
+  "dependencies": {
+    "fs-jetpack": "^0.6.4"
+  }
+}

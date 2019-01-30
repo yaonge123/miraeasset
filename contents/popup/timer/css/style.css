@@ -1,0 +1,379 @@
+*{margin:0;padding:0;line-height:1; font-family:'nanumS';}
+ul{list-style:none;}
+a{text-decoration:none;}
+img{border:none;}
+
+@font-face {font-family:'nanumS'; font-style:normal; src:local('※'), url('font/NanumSquareEB.woff'); }
+
+body{
+	background:#000000;
+	overflow:hidden; 
+}
+
+#timer_con{
+    width:1920px;
+    height:1080px;
+    position: absolute;
+    /* top: calc(50% - 384px); */
+    /* left: calc(50% - 720px); */
+    overflow: hidden;
+    margin: 0 auto;
+	background: url('../images/bg.png') 0 0 no-repeat;
+}
+
+#choice{
+	position:absolute; 
+	display:inline-block;
+	top:35px; 
+	left:40px;
+	width: 320px;
+    height: 90px;
+	background:url('../images/choice_bg.png') 0 0 no-repeat;
+}
+
+#choice .click{
+	width:175px;
+	height:90px;
+	background:none;
+    border:none;
+    outline: none;
+    text-indent: -9999px;
+    cursor: pointer;
+}
+
+/*#choice .click:hover, #choice .click.on{
+	background:url('../images/click_on.png') center center no-repeat;
+}*/
+
+
+
+#cd_timer{
+	position:absolute; 
+	display:inline-block;
+	left:-6px;
+	
+}
+
+#cd_timer.click {
+	background:url('../images/timer.png') center center no-repeat;
+}
+
+#cd_timer.click.on{
+	background:url('../images/timer_on.png') center center no-repeat;
+}
+
+#sw_stopWatch{
+	position:absolute; 
+	display:inline-block;
+	left:132px;
+	width:160px;
+	height:90px;
+}
+
+#sw_stopWatch.click {
+	background:url('../images/stopwatch.png') no-repeat;
+}
+
+#sw_stopWatch.click.on {
+	background:url('../images/stopwatch_on.png') 6px 0 no-repeat;
+}
+
+#timer{
+    width: 857px;
+    height: 360px;
+    position: absolute;
+    top: 242px;
+    left: 530px;
+    box-sizing: border-box;
+	padding: 85px 0px 0px 0px;
+	
+}
+
+#timeSelect{
+	position:absolute; display:inline-block;
+	top:43px;
+	left:60px;
+}
+
+.txt{
+	display:inline-block; 
+	width:290px;
+	height:37px;
+	background:url('../images/guide_txt.png') 0 0 no-repeat;
+	margin:10px 20px 15px 10px;
+}
+
+.selectBox{
+	display:inline-block; 
+}
+
+
+
+.select{
+	display:inline-block; 
+	margin:0px 0px;
+	height:70px;
+	border:0;
+	outline:0;
+	cursor:pointer;
+}
+
+#cd_time_01{
+	width:73px;
+	background:url('../images/timer_time_01.png') 0 0 no-repeat;
+	margin-right:-4px;
+}
+
+#cd_time_01:hover, #cd_time_01.on{
+	background:url('../images/timer_time_01_on.png') 0 0 no-repeat;
+	margin-right:-4px;
+}
+
+#cd_time_02{
+	width:73px;
+	background:url('../images/timer_time_02.png') 0 0 no-repeat;
+	margin-right:-4px;
+	
+}
+
+#cd_time_02:hover, #cd_time_02.on{
+	background:url('../images/timer_time_02_on.png') 0 0 no-repeat;
+}
+
+
+#cd_time_03{
+	width:73px;
+	background:url('../images/timer_time_03.png') 0 0 no-repeat;
+	margin-right:-4px;
+}
+
+#cd_time_03:hover, #cd_time_03.on{
+	background:url('../images/timer_time_03_on.png') 0 0 no-repeat;
+}
+
+
+#cd_time_04{
+	width:98px;
+	background:url('../images/timer_time_04.png') 0 0 no-repeat;
+	margin-right:-4px;
+}
+
+#cd_time_04:hover, #cd_time_04.on{
+	background:url('../images/timer_time_04_on.png') 0 0 no-repeat;
+}
+
+
+#cd_time_05{
+	width:98px;
+	background:url('../images/timer_time_05.png') 0 0 no-repeat;
+}
+
+#cd_time_05:hover, #cd_time_05.on{
+	background:url('../images/timer_time_05_on.png') 0 0 no-repeat;
+}
+
+
+#cd_time_06{
+	width:59px;
+	background:url('../images/timer_time_06.png') 0 0 no-repeat;
+}
+
+#cd_time_06:hover, #cd_time_06.on{
+	background:url('../images/timer_time_06_on.png') 0 0 no-repeat;
+}
+
+.time{
+    width: 592px;
+    height: 158px;
+    color:#222;
+    text-align: center;
+    font-size:180px;
+    margin: 0 auto;
+    margin-top: 140px;
+    position: relative;
+    box-sizing: border-box;
+		
+}
+
+.time #sw_ms{
+    font-size:35px;
+}
+
+.time span{position:relative; display:inline-block; line-height: 120px;
+}
+
+.time #cd_m {margin-right: 40px;}
+.time #cd_s {margin-right: 40px;}
+
+.time span.vt{
+    vertical-align: middle;
+    font-size: 160px;
+	color:#222;
+    margin-top: -25px;
+}
+
+.time span.vt2{
+    font-size:60px;
+	color:#fff;
+}
+
+.time span.cate1{
+	position:absolute; 
+	display:inline-block; 
+	font-size:45px; 
+	color:#7f7f7f;
+	top:85px;
+	left:225px;
+}
+
+.time span.cate2{
+	position:absolute;
+	display:inline-block; 
+	font-size:45px; 
+	color:#7f7f7f;
+	top:85px;
+	right:0;
+}
+
+#stopWatch{
+    width: 854px;
+    height: 360px;
+    position: absolute;
+    top: 158px;
+    left: 533px;
+    box-sizing: border-box;
+	padding: 70px 0px 0px 0px;
+	display:none;
+}
+
+#stopWatch .time{
+	width:667px;
+	padding-top:100px;
+	font-size:180px;
+}
+#stopWatch .time #sw_m {
+	margin-right: 40px;
+}
+
+#stopWatch .time #sw_s {
+	margin-right: 40px;
+}
+
+#stopWatch .time span.vt{
+	font-size:140px;
+}
+
+#stopWatch .time span.cate1{
+	top:168px;
+	left:236px;
+}
+
+#stopWatch .time span.cate2{
+	top:173px;
+	left:480px;
+}
+
+.btn_con{
+	position:absolute; display:inline-block;
+	left:133px;
+	width:695px;
+}
+
+.btn_con div{
+    float: left;
+    margin-left: 10px;
+}
+
+.btn_con div:first-child{
+    margin-left: 0;
+}
+
+.btn_con .btn_bg{
+    display: inline-block;
+	margin:0px 30px;
+	
+}
+
+.btn_con .btn_bg .btn{
+	width:294px;
+	height:95px;
+    border:none;
+    outline: none;
+    text-indent: -9999px;
+    cursor: pointer;
+	margin-left:-20px;
+}
+
+.btn_con #sw_stop{
+	display:none;
+    background: url('../images/stop.png') 0 0 no-repeat;
+	margin-top:185px;
+}
+
+.btn_con #sw_stop:hover{
+    background: url('../images/stop_over.png') 0 0 no-repeat;
+}
+
+.btn_con #sw_start{
+    background: url('../images/play.png') 0 0 no-repeat;
+	margin-top:185px;
+}
+
+.btn_con #sw_start:hover{
+    background: url('../images/play_over.png') 0 0 no-repeat;
+}
+
+.btn_con #sw_reset{
+    background: url('../images/re.png') 0 0 no-repeat;
+	margin-top:185px;
+}
+
+.btn_con #sw_reset:hover{
+    background: url('../images/re_over.png') 0 0 no-repeat;
+}
+
+.btn_con #cd_stop{
+	display:none;
+    background: url('../images/stop.png') 0 0 no-repeat;
+	margin-top:87px;
+
+}
+
+.btn_con #cd_stop:hover{
+    background: url('../images/stop_over.png') 0 0 no-repeat;
+}
+
+.btn_con #cd_start{
+    background: url('../images/play.png') 0 0 no-repeat;
+	margin-top:87px;
+}
+
+.btn_con #cd_start:hover{
+    background: url('../images/play_over.png') 0 0 no-repeat;
+}
+
+.btn_con #cd_reset{
+    background: url('../images/re.png') 0 0 no-repeat;
+	margin-top:87px;
+}
+
+.btn_con #cd_reset:hover{
+    background: url('../images/re_over.png') 0 0 no-repeat;
+}
+
+.closeBtn{
+    position: absolute;
+    top: 25px;
+    right: 23px;
+    width: 73px;
+    height: 80px;
+    border: none;
+    background: url('../images/closebtn.png') 0 0 no-repeat;
+    cursor: pointer;
+	outline:0;
+}
+
+.closeBtn:hover {
+	background: url('../images/closebtn_on.png') 0 0 no-repeat;
+}
+

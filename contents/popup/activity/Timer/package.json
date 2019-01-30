@@ -1,0 +1,26 @@
+{
+  "name": "Timer",
+  "productName": "타이머",
+  "description": "비상교육-타이머",
+  "version": "0.9.0",
+  "author": "VISANG Education,Inc.",
+  "main": "../Timer/Timer.html",
+  "icon": "../Timer/icon/icon.ico",
+  "window": {
+    "show": true,
+    "toolbar": false,
+    "icon": "../Timer/icon/icon.ico",
+    "width": 1280,
+    "height": 800,
+    "position": "center",
+    "frame": true,
+    "resizable": false
+
+  },
+  "dependencies": {
+    "fs-jetpack": "^0.6.4"
+  },
+  "build": {
+    "nwVersion": "0.23.5"
+  }
+}

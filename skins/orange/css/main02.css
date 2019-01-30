@@ -1,0 +1,40 @@
+html	{}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 768px;
+    height: 1024px;
+    color: #333333;
+}
+
+* {margin:0; padding:0; border:none;  -moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box;}
+
+dl, dt, dd, ul, ol, li {list-style:none;}
+div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, form, fieldset, input, table, tr, th, td {margin:0; padding:0;}
+h1, h2, h3, h4, h5, h6{font-weight:normal; font-size:100%; padding:0; margin:0;}
+fieldset	{border:none;}
+hr, caption {display:none;}
+strong		{font-weight:normal;}
+em			{font-style:normal;}
+legend		{position: absolute ; width: 0; height: 0; font-size: 0; line-height: 0; overflow:hidden; visibility:hidden; text-indent:-9999px;}
+
+
+img								{vertical-align:middle; height:auto}
+input, textarea, select, table	{display:inline-block; vertical-align:middle;}
+
+/* ------------------------------------------------------------------------------------------------------------- */
+
+input, textarea, select{
+	font-family:'visang_ht'; font-size:14px; line-height:22px; border:0}
+
+input:focus, textarea:focus, select:focus	{}
+
+
+.wrap{position: relative; width: 768px;height: 1024px;background:url('../images/main02_bg.png'); background-size: 768px 1024px;no-repeat;padding: 85px 50px 50px 50px;}
+.wrap .title img{margin: 50px 0;}
+.contents_list{margin-left: 30px;}
+.contents_list > div{width: 350px; height: 70px;border: 3px solid #75a3ef;border-radius: 50px;color: #3a6cbf;font-size: 28px;text-align: left;margin: 20px 0;cursor: pointer;}
+.contents_list > div:hover{background-color: #4d85e1; color: #fff;}
+.contents_list > div img{margin: 0 35px;vertical-align: middle;}
+.contents_list > div span{line-height: 60px;}

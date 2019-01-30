@@ -1,0 +1,25 @@
+{
+  "name": "StopWatch",
+  "productName": "스톱워치",
+  "description": "비상교육-스톱워치",
+  "version": "0.9.0",
+  "author": "VISANG Education,Inc.",
+  "main": "../StopWatch/StopWatch.html",
+  "icon": "../StopWatch/icon/icon.ico",
+  "window": {
+    "show": true,
+    "toolbar": true,
+    "icon": "../StopWatch/icon/icon.ico",
+    "width": 1280,
+    "height": 800,
+    "position": "center",
+    "frame": true,
+    "resizable": false
+  },
+  "dependencies": {
+    "fs-jetpack": "^0.6.4"
+  },
+  "build": {
+    "nwVersion": "0.23.5"
+  }
+}

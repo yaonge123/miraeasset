@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<title>주목</title>
+	<link rel="stylesheet" href="css/style.css" />
+
+</head>
+<body>
+
+<audio class="soundEnd"><source src="./media/bell.mp3" type="audio/mpeg"></source></audio>
+
+	<div id="helper">
+		<ul class="imgbox">
+			<li><img src="images/001.png" alt=""></li>
+			<li><img src="images/002.png" alt=""></li>
+			<li><img src="images/003.png" alt=""></li>
+			<li><img src="images/004.png" alt=""></li>
+			<li><img src="images/005.png" alt=""></li>
+			<li><img src="images/006.png" alt=""></li>
+			<li><img src="images/007.png" alt=""></li>
+			<li><img src="images/008.png" alt=""></li>
+			<li><img src="images/009.png" alt=""></li>
+			<li><img src="images/010.png" alt=""></li>
+			<li><img src="images/011.png" alt=""></li>
+			<li><img src="images/012.png" alt=""></li>
+			<li><img src="images/013.png" alt=""></li>
+			<li><img src="images/014.png" alt=""></li>
+			<li><img src="images/015.png" alt=""></li>
+			<li><img src="images/016.png" alt=""></li>
+			<li><img src="images/017.png" alt=""></li>
+			<li><img src="images/018.png" alt=""></li>
+			<li><img src="images/019.png" alt=""></li>
+			<li><img src="images/020.png" alt=""></li>
+			<li><img src="images/021.png" alt=""></li>
+			<li><img src="images/022.png" alt=""></li>
+			<li><img src="images/023.png" alt=""></li>
+			<li><img src="images/024.png" alt=""></li>
+			<li><img src="images/025.png" alt=""></li>
+			<li><img src="images/026.png" alt=""></li>
+			<li><img src="images/027.png" alt=""></li>
+		</ul>
+		<div class="overlayBtn"></div>
+		<button class="closeBtn"></button>
+	</div>
+	<script src="js/jquery-1.11.2.js"></script>
+<script>
+/* 추가 */
+$(".closeBtn").click(function(){
+	if(window.viewer!==undefined && typeof viewer.link!=="undefined") 
+		viewer.link('close', '');
+	else 
+		window.close();
+
+});
+$(function(){$(".overlayBtn").mouseover()});var chnageImgae;$(".overlayBtn").mouseover(function(){clearInterval(chnageImgae);var idx=$('.imgbox li').length;$('.imgbox li').each(function(index){if($(this).css("opacity")=="0"){idx=index;return false}});var i=idx;chnageImgae=setInterval(function(){if($('.imgbox li').length==i){clearInterval(chnageImgae)}else{$('.imgbox li:eq('+i+')').css({'opacity':1});i++}},50);$(".soundEnd").trigger("pause");$(".soundEnd").prop("currentTime",0);$(".soundEnd").trigger("play")});$(".overlayBtn").mouseout(function(){clearInterval(chnageImgae);var idx=$('.imgbox li').length-1;$('.imgbox li').each(function(index){if($(this).css("opacity")=="0"){idx=index;return false}});var i=idx;chnageImgae=setInterval(function(){if(i==0){clearInterval(chnageImgae)}else{$('.imgbox li:eq('+i+')').css({'opacity':0});i--}},50)});function setScale(){console.log('call setScale');var targetEle=document.getElementById('helper');var windowWidth=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;var windowHeight=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight;hRatio=windowWidth/targetEle.clientWidth;vRatio=windowHeight/targetEle.clientHeight;setTransform(targetEle,hRatio,vRatio);function setTransform(targetEle,hRatio,vRatio){targetEle.setAttribute('style','-ms-transform: scale('+hRatio+','+vRatio+');'+'-webkit-transform: scale('+hRatio+','+vRatio+');'+'transform: scale('+hRatio+','+vRatio+');'+'transform-origin: 0% 0%; -webkit-transform-origin: 0% 0%; -ms-transform-origin: 0% 0%;')}}setScale();window.addEventListener('resize', setScale, true);
+</script>
+</body>
+</html>

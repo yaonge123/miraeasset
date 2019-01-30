@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+	<title>시킴이</title>
+	<link rel="stylesheet" href="css/font/content_font.css" />
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<audio class="soundClick"><source src="./media/click.mp3" type="audio/mpeg"></source></audio>
+<audio class="soundEnd"><source src="./media/feed_ok.mp3" type="audio/mpeg"></source></audio>
+
+	<div id="sikimi">
+		<div class="cloud"></div>
+		<div class="inputPage">
+			<div class="inputArea">
+				<div class="inputBox"><input type="text" maxlength="2" pattern=""></div>
+				<button class="enterBtn"></button>
+			</div>
+		</div>
+		<div class="resultPage">
+			<ul class="randomList">
+			</ul>
+			<div class="sunGroup">
+				<div class="sun"></div>
+			</div>
+			<div class="result"></div>
+			<div class="btnWrap">
+				<button class="resetBtn">RESET</button>
+				<button class="startBtn">START</button>
+			</div>
+		</div>
+		<button class="homeBtn"></button>
+		<button class="closeBtn"></button>
+	</div>
+	<script src="js/jquery-1.11.2.js"></script>
+	<script src="js/sikimi.js"></script>
+
+<script>
+/* 추가 */
+$(".closeBtn").click(function(){
+	if(window.viewer!==undefined && typeof viewer.link!=="undefined") 
+		viewer.link('close', '');
+	else 
+		window.close();
+
+});
+setScale();
+window.addEventListener('resize', setScale, true);
+</script>
+
+</body>
+</html>

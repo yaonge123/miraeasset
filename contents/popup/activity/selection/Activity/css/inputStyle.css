@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+
+div input
+{
+	display:block;
+	position:absolute;
+	background:none;
+	color: #FFF;
+	top: 170px;
+	left:590px;
+	width: 110px;
+	border: none;
+	font-size: 90px;
+	text-align:center;
+	font-family: 'Noto Sans';
+}
+
+div input:focus {
+  outline: none;
+}

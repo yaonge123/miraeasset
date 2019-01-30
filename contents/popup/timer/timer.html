@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<title>타이머</title>
+	<link rel="stylesheet" href="css/font/roboto.css" />
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<audio class="soundClick"><source src="./media/click.mp3" type="audio/mpeg"></source></audio>
+<audio class="soundSeconds"><source src="./media/clock.mp3" type="audio/mpeg"></source></audio>
+<audio class="soundEnd"><source src="./media/bell.mp3" type="audio/mpeg"></source></audio>
+
+	<div id="timer_con">
+		<div id="choice">
+			<button id="cd_timer" class="click on">타이머</button> <!-- 클릭시 on 클레스 추가 timer : display:inline-block; -->
+			<button id="sw_stopWatch" class="click">스톱워치</button> <!-- 클릭시 on 클레스 추가 stopWatch : display:inline-block; -->
+		</div>
+
+		<div id="timer">
+			<div id="timeSelect">
+				<div class="txt"></div>
+				<div class="selectBox">
+					<button id="cd_time_01" class="select" value="1"></button> <!-- 클릭시 on 클레스 추가 - 1분부터 뒤로 시간 줄어듬 - 기능 구현 후 주석 삭제 요청 -->
+					<button id="cd_time_02" class="select" value="3"></button>
+					<button id="cd_time_03" class="select" value="5"></button>
+					<button id="cd_time_04" class="select" value="10"></button>
+					<button id="cd_time_05" class="select" value="20"></button>
+				</div>
+			</div>
+			<div class="time">
+				<span id="cd_m">00</span><span class="cate1">분</span><span class="vt">:</span><span id="cd_s">00</span><span class="cate2">초</span>
+				<div class="cover">
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div class="btn_con">
+				<div class="btn_bg">
+					<button id="cd_start" class="btn">시작</button>
+					<button id="cd_stop" class="btn">정지</button>
+				</div>
+				<div class="btn_bg">
+					<button id="cd_reset" class="btn">다시시작</button>
+				</div>
+			</div>
+			<input type="text" value="0" id="cd_seconds" style="visibility:hidden;" />
+		</div>
+
+		<div id="stopWatch">
+			<div class="time">
+				<span id="sw_m">00</span><span class="cate1">분</span><span class="vt">:</span><span id="sw_s">00</span><span class="cate2">초</span><span class="vt2">.</span><span id="sw_ms">00</span>
+				<div class="cover">
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div class="btn_con">
+				<div class="btn_bg">
+					<button id="sw_start" class="btn">시작</button>
+					<button id="sw_stop" class="btn">정지</button>
+				</div>
+				<div class="btn_bg">
+					<button id="sw_reset" class="btn">다시시작</button>
+				</div>
+			</div>
+		</div>
+		<button class="closeBtn"></button></a>
+	</div>
+	<script src="js/jquery-1.11.2.js"></script>
+	<script src="js/timer.js"></script>
+
+	<script>
+		/* 추가 */
+		// 2019.01.15 왕예나 수정
+		$(".closeBtn").click(function(){
+			// if (window.android !== undefined) return;
+			// else window.close();
+			//else viewer.link('close', '');
+			window.close();
+		});
+		
+		function setScale() {
+			console.log('call setScale');
+			var targetEle = document.getElementById('timer_con');
+			var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+			var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+			hRatio = windowWidth / targetEle.clientWidth;
+			vRatio = windowHeight / targetEle.clientHeight;
+
+			setTransform(targetEle, hRatio, vRatio);
+			function setTransform(targetEle, hRatio, vRatio) {
+			  targetEle.setAttribute('style', '-ms-transform: scale(' + hRatio + ',' + vRatio + ');'
+				+ '-webkit-transform: scale(' + hRatio + ',' + vRatio + ');' + 'transform: scale(' + hRatio + ',' + vRatio + ');'
+				+ 'transform-origin: 0% 0%; -webkit-transform-origin: 0% 0%; -ms-transform-origin: 0% 0%;');
+			}
+		}
+
+		setScale()
+		window.addEventListener('resize', setScale, true);
+	</script>
+
+</body>
+</html>

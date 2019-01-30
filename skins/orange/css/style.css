@@ -1,0 +1,200 @@
+body,html{
+  	overflow:hidden;
+  	position:fixed;
+  	top:0;
+  	bottom: 0;  
+  	width: 100%; 
+  	height: 100%
+}
+
+canvas { 
+	height: 100vh; 
+	width: 100vw; 
+	display: block;
+}
+
+img {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.modal-backdrop {
+	z-index: 19000;
+	background-color:#00000035;
+}
+
+/*
+iframe {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+*/
+
+canvas {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.grabbable {
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+ /* (Optional) Apply a "closed-hand" cursor during drag operation. */
+.grabbable:active { 
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+header
+{
+	font-family: 'Lobster', cursive;
+	text-align: center;
+	font-size: 25px;	
+}
+
+#info
+{
+	font-size: 18px;
+	color: #555;
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+a{
+	color: #074E8C;
+}
+
+.scrollbar
+{
+	margin-left: 30px;
+	float: left;
+	height: 300px;
+	width: 65px;
+	background: #F5F5F5;
+	overflow-y: scroll;
+	margin-bottom: 25px;
+}
+
+.force-overflow
+{
+	min-height: 450px;
+}
+
+#wrapper
+{
+	text-align: center;
+	width: 500px;
+	margin: auto;
+}
+
+.scroll-wrapper {
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: relative;
+}
+
+.scroll-wrapper > .scroll-content {
+    border: none !important;
+    box-sizing: content-box !important;
+    height: auto;
+    left: 0;
+    margin: 0;
+    max-height: none;
+    max-width: none !important;
+    overflow: scroll !important;
+    padding: 0;
+    position: relative !important;
+    top: 0;
+    width: auto !important;
+}
+ 
+.scroll-wrapper > .scroll-content::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+}
+ 
+.scroll-element {
+    display: none;
+}
+.scroll-element, .scroll-element div {
+    box-sizing: content-box;
+}
+ 
+.scroll-element.scroll-x.scroll-scrollx_visible,
+.scroll-element.scroll-y.scroll-scrolly_visible {
+    display: block;
+}
+ 
+.scroll-element .scroll-bar,
+.scroll-element .scroll-arrow {
+    cursor: default;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* scrollbar */
+
+.scrollable .scroll-element {display:none;}
+.scrollable .scroll-element, .scroll-element div {box-sizing:content-box;}
+.scrollable .scroll-element.scroll-x.scroll-scrollx_visible,
+.scrollable .scroll-element.scroll-y.scroll-scrolly_visible {display:block;}
+.scrollable .scroll-element .scroll-bar,
+.scrollable .scroll-element .scroll-arrow {cursor:default;}
+.scrollable .scroll-textarea > .scroll-content {overflow:hidden !important;}
+.scrollable .scroll-textarea > .scroll-content > textarea {border:none !important; box-sizing:border-box; height:100% !important; margin:0; max-height:none !important; max-width:none !important; overflow:scroll !important; outline:none; padding:2px; position:relative !important; top:0; width:100% !important;}
+.scrollable .scroll-textarea > .scroll-content > textarea::-webkit-scrollbar {height:0; width:0;}
+.scrollable .scroll-element,
+.scrollable .scroll-element div {border:none; margin:0; padding:0; position:absolute; z-index:10;}
+.scrollable .scroll-element div {display:block; height:100%; left:0; top:0; width:100%;}
+.scrollable .scroll-element.scroll-x {bottom:2px; height:25px; left:0; width:100%;}
+.scrollable .scroll-element.scroll-y {position:absolute; top:0px; right:5px; width:8px; height:100%;}
+.scrollable .scroll-element .scroll-element_outer {overflow:hidden;}
+.scrollable .scroll-element .scroll-element_track {position:absolute; top:0px; right:0px; margin-left:11px; width:8px; height:100%; background:#ebebeb; -webkit-border-radius:8px; -moz-border-radius:8px; border-radius:8px;}
+.scrollable .scroll-element.scroll-x .scroll-element_track {position:absolute; top:8px; right:0px; margin-left:11px; width:100%; height:8px; background:#ebebeb; -webkit-border-radius:8px; -moz-border-radius:8px; border-radius:8px;}
+.scrollable .scroll-element .scroll-bar {position:absolute; display:inline-block; top:0px; left:-6px; width:20px; height:51px !important; background:url('../img/common/scroll_thum.png') no-repeat; cursor:pointer;}
+.scrollable .scroll-element.scroll-x .scroll-bar {position:absolute; display:inline-block; top:0px; left:0px; width:47px; height:25px !important; background:url('../img/common/scroll_thum_x.png') no-repeat; cursor:pointer;}
+
+/* scrollbar */
+
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+
+.scrollContent::-webkit-scrollbar-track
+{
+	width:8px; background:#ebebeb; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px;
+}
+
+.scrollContent::-webkit-scrollbar
+{
+	
+}
+
+.scrollContent::-webkit-scrollbar-thumb
+{
+	background:#f37237; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px;
+}
+
+.nav-tabs>li>a {
+    margin-right: 0px;
+    line-height: 0;
+    border: 0px solid transparent;
+    border-radius: 10px 10px 0 0;	
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 0px 0px;
+}

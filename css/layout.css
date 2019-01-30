@@ -1,0 +1,230 @@
+#wrap {height:100%;  position:relative;  background:#FFFFFF; }
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* viewportPopup */
+
+.viewportPopup												{width:220px; height:245px; background:url('../img/popup/viewport.png') no-repeat;}
+.viewportPopup .naviPopTitleContainer						{}
+.viewportPopup .naviPopTitleContainer p						{display:none;}
+.viewportPopup .naviPopTitleContainer .naviClose			{position:absolute; display:inline-block; top:10px; right:10px; }
+.viewportPopup .naviPopContentContainer						{position:absolute; left:15px; bottom:5px; width:210px; height:30px;}
+.viewportPopup .naviPopContentContainer .newly				{position:absolute; top:2px; left:72px; display:inline-block;}
+.viewportPopup .naviPopContentContainer .newly .zoomOut		{display:inline-block; float:left; width:26px; height:26px; background:url('../img/popup/viewport_icon_zoomout.png') no-repeat; cursor:pointer;}
+.viewportPopup .naviPopContentContainer .newly .zoomTxt		{display:inline-block; float:left; width:65px; vertical-align:middle; color:#fff; font-size:16px; line-height:26px; text-align:center; font-family:'nanumS';}
+.viewportPopup .naviPopContentContainer .newly .zoomIn		{display:inline-block; float:left; width:26px; height:26px; background:url('../img/popup/viewport_icon_zoomin.png') no-repeat; cursor:pointer;}
+
+.naviMoveHand		{position:absolute; top:0px; left:0px; /*transform:translateX(-31px); */ left:-31px;}
+.movehand			{width:20px; height:30px; background:url('../img/popup/viewport_hand_01.png') no-repeat; cursor:pointer; border:0; outline:0;}
+.movehand.active	{width:20px; height:30px; background:url('../img/popup/viewport_hand_02.png') no-repeat; cursor:pointer;}
+
+/* viewportPopup */
+
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* popContainer */
+.layerPopContainer										{position:absolute;}
+.layerPopBack											{background:rgba(0,0,0,0.5);}
+
+.popContainer											{background:#f37237; -webkit-border-radius:12px; -moz-border-radius:12px; border-radius:12px; padding:4px; font-family:'nanumS';}
+.popContainer .popTitleContainer						{display:inline-block; width:100%; height:61px; padding-left:25px;}
+.popContainer .popTitleContainer .popTitleTxt			{font-size:24px; line-height:55px; color:#fff;}
+.popContainer .popTitleContainer .btnClose				{position:absolute; display:inline-block; top:13px; right:15px;}
+
+.popContainer .popTitleContainer .tipWrap				{position:absolute; display:inline-block; top:13px; right:61px;}
+.popContainer .popTitleContainer .tipWrap .btnTipHelp	{display:inline-block; width:36px; height:36px; background:url('../img/popup/popup_help.png') no-repeat; cursor:pointer; border:0; outline:0;}
+.popContainer .popTitleContainer .tipWrap .btnTipHelp:hover
+														{background:url('../img/popup/popup_help_over.png') no-repeat;}
+
+.popContainer .popTitleContainer .tipWrap .tipImg		{position:absolute; display:inline-block; right:-65px; margin-top:8px;}
+.popContainer .popTitleContainer .tipWrap .tipProgress	{width:424px; height:114px; background:url('../img/popup/tooltip_progress.png') no-repeat; top:-114px} /* top : -100%; margin-top:8px */
+.popContainer .popTitleContainer .tipWrap .tipProgressComplete
+														{width:329px; height:93px; background:url('../img/popup/tooltip_progress_complete.png') no-repeat; top:-93px;}
+
+.popContainer .popTitleContainer .tipWrap .tipMylink	{width:424px; height:114px; background:url('../img/popup/tooltip_mylink.png') no-repeat; top:-114px}
+
+
+
+.popContainer .popCotentContainer						{width:100%; background:#fff; -webkit-border-bottom-right-radius:10px; -moz-border-radius-bottomright:10px; border-bottom-right-radius:10px; -webkit-border-bottom-left-radius:10px; -moz-border-radius-bottomleft:10px; border-bottom-left-radius:10px}
+
+.popContainer .pbtn										{outline:0; border:0; cursor:pointer;}
+.popContainer .inputTxt									{display:inline-block; height:50px; border:2px solid #dbdbdb; font-family:'nanumS'; font-size:18px; color:#999999; padding-left:10px; line-height:45px; -webkit-border-right-radius:12px; -moz-border-radius:12px; border-radius:12px;}
+/* popContainer */
+
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* progress */
+.popProgress		{position:absolute; display:inline-block; width:550px;}
+.popProgressBox		{width:542px; height:183px; background:url('../img/popup/progress_bg_popup.png') no-repeat; padding:80px 0px 0px 20px;}
+
+.popProgressBox	.popProgressSelect	
+					{display:inline-block; float:left; vertical-align:middle; width:100px; height:50px; line-height:45px; text-align:center; font-size:18px; background:url('../img/popup/chk_arrow.png') 75px center no-repeat; border:2px solid #dbdbdb; margin:0px 35px; 
+					-webkit-border-radius:0px; -moz-border-radius:0px; border-radius:0px; box-sizing:border-box; font-family:'nanumS'; -webkit-appearance:none;  -moz-appearance:none; overflow:hidden; padding-left:10px;
+}
+.popProgressBox select::-ms-expand			{display:none}
+.popProgressBox .popProgressSelect option	{border:none; padding:10px;}
+
+.popProgressBox .btnSave					{display:inline-block; margin:0px 25px; width:100px; height:50px; background:url('../img/popup/btn_save.png') no-repeat; font-size:0;}
+.popProgressBox .btnSave:hover				{display:inline-block; margin:0px 25px; width:100px; height:50px; background:url('../img/popup/btn_save_over.png') no-repeat; font-size:0;}
+
+/* progress - Complete */
+.popProgressComplete .popProgressCompleteBox{width:542px; height:600px; background:url('../img/popup/progress_complete_bg_popup.png') no-repeat; padding:70px 0px 65px 0px; -webkit-border-radius:10px; -moz-border-radius:10px; border-radius:10px;}
+
+.popProgressComplete .popProgressCompleteBox .side-list		{position:absolute; left:4; top:130px; bottom:0; width:542px; height:calc(100% - 200px); z-index:1;
+															font-family:'nanumS', 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size:24px;}
+.popProgressComplete .popProgressCompleteBox .side-list .scrollable						{position:relative; display:inline-block; width:100%; height:100%; padding-right:5px;}
+.popProgressComplete .popProgressCompleteBox .side-list .scrollable .scrollContent		{height:100%; overflow-y:scroll; overflow-x:hidden}
+
+.progressScroll li	{position:relative; width:525px; height:60px; padding:0px 0px 0px 20px; margin:0px 10px 0px 0px; font-size:24px; color:#222; border-bottom:1px solid #dddddd; cursor:pointer;}
+.progressScroll li:last-child{border-bottom:none;}
+
+.progressScroll li .chk	{float:left; margin-top:14px; margin-right:60px;}
+.progressScroll li .progressCompleteTxt{float:left; width:400px; padding-top:12px;}
+.progressScroll li .progressCompleteTxt .pageNum{position:absolute; display:inline-block; left:280px; width:160px; text-align:center;}
+
+.popProgressCompleteBox .progressSelect												{position:absolute; display:inline-block; bottom:0px; left:4; width:542px; height:65px; padding-top:8px; border-top:1px solid #dddddd;}
+.popProgressCompleteBox .progressSelect .progressDel								{position:absolute; display:inline-block; top:20px; right:50px; width:59px; height:21px; background:url('../img/popup/btn_bookmarks_del.png') no-repeat; cursor:pointer; border:0; outline:0; font-size:0}
+.popProgressCompleteBox .progressSelect .chk										{position:absolute; display:inline-block; top:13px; left:40px;}
+.popProgressCompleteBox .progressSelect .chk input[type=checkbox] + .ico			{width:108px; background:url('../img/popup/chk_box_bookmarks.png') no-repeat; background-size:108px auto;}
+.popProgressCompleteBox .progressSelect .chk input[type=checkbox]:checked + .ico	{width:108px; background:url('../img/popup/chk_box_bookmarks_on.png') no-repeat; background-size:108px auto;}
+/* progress - Complete */
+
+/* progress - save */
+.popProgressSave	{position:absolute; display:none; width:224px;}
+.popProgressSave .popCotentContainer{background:none;}
+.popProgressImg		{display:inline-block; width:100%;}
+.popProgressImg img	{width:107px; height:140px; margin:0px; padding:0px; display:inline-block; float:left}
+/* progress - save */
+
+/* progress */
+
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* popMylink */
+.popMylink										{position:absolute; display:inline-block; width:550px;}
+.popMyLinkBox									{width:100%; height:183px; padding:31px 0px 0px 46px;}
+
+.popMylink .btnMyLinkSave						{position:absolute; display:inline-block; top:100px; right:32px; width:100px; height:110px; background:url('../img/popup/mylink_btn_save.png') no-repeat;}
+.popMylink .btnMyLinkSave:hover					{background:url('../img/popup/mylink_btn_save_over.png') no-repeat;}
+
+.popMyLinkBox .btnMyLinkFile					{display:inline-block; float:left; width:214px; height:120px; background:url('../img/popup/mylink_file_link.png') no-repeat; margin:0px 7px;}
+.popMyLinkBox .btnMyLinkFile:hover				{background:url('../img/popup/mylink_file_link_over.png') no-repeat;}
+.popMyLinkBox .btnMyLinkWeb						{display:inline-block; float:left; width:214px; height:120px; background:url('../img/popup/mylink_web_link.png') no-repeat; margin:0px 7px;}
+.popMyLinkBox .btnMyLinkWeb:hover				{background:url('../img/popup/mylink_web_link_over.png') no-repeat;}
+
+.popMyLinkBoxFile								{width:100%; height:183px; padding:35px 0px 0px 28px;}
+.popMyLinkBoxFile .myLinkFileWrap				{display:inline-block; width:100%; height:50px; margin-bottom:10px;}
+.popMyLinkBoxFile .myLinkFileSrc				{display:inline-block; width:265px; float:left; margin-right:10px;}
+.popMyLinkBoxFile .myLinkFileName				{display:inline-block; width:375px;}
+.popMyLinkBoxFile .btnMyLinkFileSearch			{display:inline-block; width:100px; height:50px; background:url('../img/popup/mylink_btn_search.png') no-repeat;}
+.popMyLinkBoxFile .btnMyLinkFileSearch:hover	{display:inline-block; width:100px; height:50px; background:url('../img/popup/mylink_btn_search_over.png') no-repeat;}
+
+.popMyLinkBoxWeb								{width:100%; height:183px; padding:35px 0px 0px 28px;}
+.popMyLinkBoxWeb .myLinkWebWrap					{display:inline-block; width:100%; height:50px; margin-bottom:10px;}
+.popMyLinkBoxWeb .myLinkWebSrc					{display:inline-block; width:375px; margin-right:10px;}
+.popMyLinkBoxWeb .myLinkWebName					{display:inline-block; width:375px;}
+/* popMylink */
+
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* pophelper */
+.pophelper			{position:absolute; display:inline-block; width:550px;}
+.popHelperBox		{display:inline-block; width:100%}
+/* pophelper */
+
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* selectTxt */
+.popSelectTxt									{position:absolute; display:inline-block; width:550px;}
+.popSelectTxtBox								{width:100%; height:183px; padding:32px 0px 0px 43px;}
+.popSelectTxtBox .pbtn							{width:100px; height:120px; margin:0px 7px; float:left;}
+.popSelectTxtBox .selectTxtNaver				{background:url('../img/popup/select_txt_naver.png') no-repeat;}
+.popSelectTxtBox .selectTxtDaum					{background:url('../img/popup/select_txt_daum.png') no-repeat;}
+.popSelectTxtBox .selectTxtGoogle				{background:url('../img/popup/select_txt_google.png') no-repeat;}
+.popSelectTxtBox .selectTxtCopy					{background:url('../img/popup/select_txt_copy.png') no-repeat;}
+.popSelectTxtBox .selectTxtNaver:hover			{background:url('../img/popup/select_txt_naver_over.png') no-repeat;}
+.popSelectTxtBox .selectTxtDaum:hover			{background:url('../img/popup/select_txt_daum_over.png') no-repeat;}
+.popSelectTxtBox .selectTxtGoogle:hover			{background:url('../img/popup/select_txt_google_over.png') no-repeat;}
+.popSelectTxtBox .selectTxtCopy:hover			{background:url('../img/popup/select_txt_copy_over.png') no-repeat;}
+/* selectTxt */
+
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* popCapture */
+.popCapture											{position:absolute; display:inline-block; width:100%; height:72px; -webkit-border-radius:0px; -moz-border-radius:0px; border-radius:0px; text-align:center;}
+.popCapture .popTitleContainer						{height:72px; padding-left:25px; text-align:left;}
+.popCapture .popTitleContainer .popTitleTxt			{line-height:65px; }
+.popCapture .popCotentContainer						{position:absolute; display:inline-block; top:0px; left:50%; margin-left:-150px; width:300px; background:none;}
+.popCapture .popCapturetBox 						{width:100%;}
+.popCapture .popCapturetBox .pbtn					{width:56px; height:56px; margin:8px 8px;}
+.popCapture .popCapturetBox .captureBtn01			{background:url('../img/popup/capturet_btn_01.png') no-repeat;}
+.popCapture .popCapturetBox .captureBtn02			{background:url('../img/popup/capturet_btn_02.png') no-repeat;}
+.popCapture .popCapturetBox .captureBtn03			{background:url('../img/popup/capturet_btn_03.png') no-repeat;}
+.popCapture .popCapturetBox .captureBtn01:hover		{background:url('../img/popup/capturet_btn_01_over.png') no-repeat;}
+.popCapture .popCapturetBox .captureBtn02:hover		{background:url('../img/popup/capturet_btn_02_over.png') no-repeat;}
+.popCapture .popCapturetBox .captureBtn03:hover		{background:url('../img/popup/capturet_btn_03_over.png') no-repeat;}
+.popCapture .popCapturetBox .pbtn + .pbtn:before	{display:inline-block; width:16px; height:56px; content:''; background:url('../img/popup/capturet_btn_cell.png') no-repeat; margin-left:-24px; float:left;}
+/* popCapture */
+
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* popCapture */
+.popPrint											{position:absolute; display:inline-block; width:863px; -webkit-border-radius:0px; -moz-border-radius:0px; border-radius:0px; padding:0px; text-align:center;}
+.popCapture .popTitleContainer						{height:65px;}
+.popCapture .popPrintBox 							{width:863px; height:433px;}
+/* popCapture */
+
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* pophelpModal */
+.pophelpModal											{position:absolute; display:inline-block; width:100%; height:100%; -webkit-border-radius:0px; -moz-border-radius:0px; border-radius:0px; text-align:center; left:0px; top:0px;}
+.pophelpModal .popTitleContainer						{height:90px; padding-left:25px; padding-top:25px; text-align:left; }
+.pophelpModal .popTitleContainer .popTitleTxt			{background:url('../img/helpmap/help_title.png') no-repeat; font-size:0; }
+.pophelpModal .popTitleContainer .btnClose				{top:15px; right:30px; width:60px; height:60px; background:url('../img/helpmap/help_close.png') no-repeat;}
+.pophelpModal .popCotentContainer						{position:absolute; display:inline-block; top:90px; left:10px; width:calc(100% - 20px); height:calc(100% - 100px); background:#fff; -webkit-border-radius:16px; -moz-border-radius:16px; border-radius:16px; text-align:center; padding:20px 10px;}
+.pophelpModal .popCotentContainer .popHelpModalBox		{width:100%; height:100%; overflow:hidden; overflow-y:auto}
+.pophelpModal .popCotentContainer .help_img				{display:inline-block; width:calc(50% - 10px); float:left;}
+.pophelpModal .popCotentContainer .help_img:nth-child(1){margin-right:20px;}
+/* pophelpModal */
+
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* messageContainer */
+.messageContainer	{position:absolute; display:inline-block; background:#f37237; padding:4px; -webkit-border-right-radius:12px; -moz-border-radius:12px; border-radius:12px; 
+					-moz-box-shadow:5px 20px 10px 5px rgba(0,0,0,0.1); -webkit-box-shadow:5px 20px 10px 5px rgba(0,0,0,0.1); box-shadow:5px 20px 10px 5px rgba(0,0,0,0.1);}
+.messageContainer li{display:none; width:450px; height:210px; background:#fff; -webkit-border-right-radius:10px; -moz-border-radius:10px; border-radius:10px; font-family:'nanumS'; font-size:24px; color:#222; text-align:center; padding-top:50px;}
+.messageContainer li:nth-child(2){display:inline-block;}
+
+.messageContainer .mbtn{position:absolute; display:inline-block; width:100px; height:50px; cursor:pointer; border:0; outline:0;}
+.messageContainer .messageOk{top:115px; left:50%; margin-left:-50px; background:url('../img/message/message_btn_ok.png') no-repeat;}
+.messageContainer .messageOk:hover{background:url('../img/message/message_btn_ok_over.png') no-repeat;}
+.messageContainer .messageYes{top:115px; left:50%; margin-left:-105px; background:url('../img/message/message_btn_yes.png') no-repeat;}
+.messageContainer .messageYes:hover{background:url('../img/message/message_btn_yes_over.png') no-repeat;}
+.messageContainer .messageNo{top:115px; left:50%; margin-left:5px; background:url('../img/message/message_btn_no.png') no-repeat;}
+.messageContainer .messageNo:hover{background:url('../img/message/message_btn_no_over.png') no-repeat;}
+/* messageContainer */
+
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
