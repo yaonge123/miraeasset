@@ -1371,8 +1371,8 @@ function resizeOnePage() {
     $(".frame_cover").width(epubDB.epubInfo.width * c).height(epubDB.epubInfo.height * c);
     $("#drawingCanvasOnepage").width(2 * epubDB.epubInfo.width * c);
     $("#drawingCanvasOnepage").height(epubDB.epubInfo.height * c);
-    epubDB.epubInfo.height * c < b ? (b = (b - epubDB.epubInfo.height * c) / 2, $(".frame_cover").css("top", b)) : (b = 0, $(".frame_cover").css("top", 0));
-    epubDB.epubInfo.width * c < a ? (b = (a - epubDB.epubInfo.width * c) / 2, $(".frame_cover").css("left", b)) : (b = 0, $(".frame_cover").css("left", 0));
+    epubDB.epubInfo.height * c < b ? (b = (b - epubDB.epubInfo.height * c) / 2, $(".frame_cover").css("top", b), $(".page_loader").css("top", b)) : (b = 0, $(".frame_cover").css("top", 0), $(".page_loader").css("top", 0));
+    epubDB.epubInfo.width * c < a ? (b = (a - epubDB.epubInfo.width * c) / 2, $(".frame_cover").css("left", b), $(".page_loader").css("left", b)) : (b = 0, $(".frame_cover").css("left", 0), $(".page_loader").css("left", 0));
     $("#drawingCanvasOnepage").parent().css("top", b);
     $("#drawingCanvasOnepage").parent().css("left", 0);
     $("#drawingCanvasOnepage").parent().css("position", "absolute");
@@ -1389,13 +1389,16 @@ function resizeOnePage() {
     a = 0 == currentOnePageIdx % 2 ? 0 : epubDB.epubInfo.width * c;
     $("#drawingCanvasOnepage").css("left", -a)
 
+    // $(".page_loader").css("top", (b - epubDB.epubInfo.height * c) / 2);
+    // $(".page_loader").css("left", 0);
     // 2019.01.18 왕예나 추가
-    $(".page_loader").css({
-        "width": epubDB.epubInfo.width * c,
-        "height": epubDB.epubInfo.height,
-        "left": "",
-        "top": ""
-    });
+    //$(".page_loader").css({
+    //     "width": epubDB.epubInfo.width * c,
+    //     "height": $(window).height(),
+    //     "left": "",
+    //     "top": b
+    // });
+
     if (isWebview) {
         $(".quickMenu .quickbtn .btnQuickText").css({
             width: 0,
@@ -1418,6 +1421,11 @@ function resizeOnePage() {
             left: "",
             top: ""
         });
+
+        $(".page_loader").width($(window).width());
+        $(".page_loader").height($(window).height());
+        $(".page_loader").css("top", 0);
+        
     }
 }
 
