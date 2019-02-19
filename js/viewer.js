@@ -233,6 +233,11 @@ var localData = localData || {},
         },
         openVivasam: function() {
             void 0 != window.android ? window.android.openExternalBrowser("http://www.vivasam.com/") : window.open("http://www.vivasam.com/", "_blank")
+        },
+        gotoPageWithIdx: function(a) {
+            menuCloseFix();
+            sideMenu.closeAll();
+            goPageWithIdx(a);
         }
     };
 
@@ -784,11 +789,11 @@ function loadWebLink() {
     $("#webLinkList").empty();
     $(".linkicon").remove();
     for (var a = 0, b = 0; b < WebLink.getLink().length; b++)
-        if ($("#webLinkList").append('<li>\t<label class="chk">\t\t<input id="chk_weblink" type="checkbox" value="' + WebLink.getLink()[b].idx + '" name="writeCheck"/><span class="ico"></span>\t<p><a href="' + WebLink.getLink()[b].url + '" target="_blank">' + limitWords(WebLink.getLink()[b].name, 12) + '</a>\t<span class="writeDate">' + UnixTimestamp(parseInt(WebLink.getLink()[b].idx)) + "</span>\t</p>\t</label></li>"), WebLink.getLink()[b].pidx == currentPageIdx) {
+        if ($("#webLinkList").append('<li>\t<label class="chk">\t\t<input id="chk_weblink" type="checkbox" value="' + WebLink.getLink()[b].idx + '" name="writeCheck"/><span class="ico"></span>\t<p><a class="weblink" href="' + WebLink.getLink()[b].url + '" target="_blank">' + limitWords(WebLink.getLink()[b].name, 12) + '</a>\t<span class="writeDate">' + UnixTimestamp(parseInt(WebLink.getLink()[b].idx)) + "</span>\t</p>\t</label></li>"), WebLink.getLink()[b].pidx == currentPageIdx) {
             var c = WebLink.getLink()[b].idx,
                 d = 10 + 70 * Math.floor(a / 10),
                 e = 60 + 70 * Math.floor(a);
-            $("#cover_view_control").append("<div id='icon" + c + "' class='linkicon' style='position:absolute;top:" + d + "px;left:" + e + "px;z-index:10011;'><a href='" + WebLink.getLink()[b].url + "' target='_blank'><div class='icon_link'></div></a></div>");
+            $("#cover_view_control").append("<div id='icon" + c + "' class='linkicon' style='position:absolute;top:" + d + "px;left:" + e + "px;z-index:10011;'><a class='weblink' href='" + WebLink.getLink()[b].url + "' target='_blank'><div class='icon_link'></div></a></div>");
             $("#icon" + c).draggable({
                 cancel: ".clickable",
                 revert: !1,
@@ -796,6 +801,17 @@ function loadWebLink() {
             });
             a++
         }
+
+    // 2019.02.19 왕예나 추가
+    clickWebLink();
+}
+
+function clickWebLink() {
+    $(".weblink").on("click", function() {
+        // 뷰어 -> 안드로이드
+        // 페이지 건네주기
+        if (isWebview) window.android.temp(currentPageIdx);
+    });
 }
 
 function loadBookmark() {
@@ -1387,7 +1403,7 @@ function resizeOnePage() {
     drawingCanvasOnepage.renderAll();
     disableSelectObjectOnepage();
     a = 0 == currentOnePageIdx % 2 ? 0 : epubDB.epubInfo.width * c;
-    $("#drawingCanvasOnepage").css("left", -a)
+    //$("#drawingCanvasOnepage").css("left", -a)
 
     // $(".page_loader").css("top", (b - epubDB.epubInfo.height * c) / 2);
     // $(".page_loader").css("left", 0);
@@ -1398,6 +1414,9 @@ function resizeOnePage() {
     //     "left": "",
     //     "top": b
     // });
+
+    // 2019.02.07 왕예나 수정
+    $("#drawingCanvasOnepage").parent().css("left", -a)
 
     if (isWebview) {
         $(".quickMenu .quickbtn .btnQuickText").css({
@@ -1425,7 +1444,6 @@ function resizeOnePage() {
         $(".page_loader").width($(window).width());
         $(".page_loader").height($(window).height());
         $(".page_loader").css("top", 0);
-        
     }
 }
 
@@ -1993,6 +2011,7 @@ $(document).ready(function() {
         sideMenu.closeAll();
         void 0 !== window.viewer && "undefined" !== typeof window.viewer.showMyLink && window.viewer.showMyLink()
     });
+
     $("#btn_print").click(function() {
         sideMenu.closeAll();
         void 0 !== window.viewer && "undefined" !== typeof window.viewer.print && window.viewer.print()
