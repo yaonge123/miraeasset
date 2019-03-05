@@ -31,10 +31,10 @@
 
 /* bookMark btn */
 .btnBoomMark{position:absolute; display:inline-block; top:-1px; width:42px; height:64px; background:url('../img/navi/nav_bookmark.png') no-repeat; cursor:pointer;}
-.btnBoomMark.on, 
-.btnBoomMark:hover{background:url('../img/navi/nav_bookmark_over.png') no-repeat;}
+.btnBoomMark.on{background:url('../img/navi/nav_bookmark_over.png') no-repeat;}
 .btnBoomMark.left{left:10px; background-position: 0px 0px;}
 .btnBoomMark.right{right:10px; background-position: top right 0px;}
+#bookmark_onepage{background-size: 40px auto !important;}
 
 /* page move */
 #btn_page_prev{}

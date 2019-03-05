@@ -1,5 +1,5 @@
 var epubDB = {
-        client: "MIRAE",
+        client: "MIRAEASSET",
         base: null,
         page: null,
         toc: null,
@@ -97,6 +97,9 @@ var epubDB = {
         },
         save: function () {
             localStorage.setItem("weblink_" + epub_code, JSON.stringify(this.links))
+        },
+        checkURL: function(url) {
+            return /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/|www\.)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test(url);
         }
     };
 

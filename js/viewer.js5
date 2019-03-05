@@ -815,14 +815,12 @@ function loadWebLink() {
 //         // 페이지 건네주기
 
 //         e.stopPropagation();
-
 //         var link = $(this).attr("href");
 //         if (isWebview) window.android.openWebBrowser(link);
 //         //window.android.openInternalBrowser("/resources/contents/popup/timer/timer.html");
 //     });
 // }
 
-// 2019.02.28 yena update
 function loadBookmark() {
     bookmarkData = null != localStorage.getItem("bookmark_" + epub_code) ? JSON.parse(localStorage.getItem("bookmark_" + epub_code)) : [];
     bookmarkData.sort(function(a, c) {
@@ -831,80 +829,8 @@ function loadBookmark() {
     $("#bookmarkList").empty();
     $("#bookmark_left").removeClass("on");
     $("#bookmark_right").removeClass("on");
-    $("#bookmark_onepage").removeClass("on");
-    
-    for (var i = 0; i < bookmarkData.length; i++) {
-        if (bookmarkData[i] == null) continue;
-
-        // if (currentPageIdx == parseInt(bookmarkData[i].pageidx)) {
-        //     if (!$("#bookmark_left").hasClass("on"))
-        //         $("#bookmark_left").addClass("on");
-        // }
-
-        // if ((currentPageIdx + 1) == parseInt(bookmarkData[i].pageidx)) {
-        //     if (!$("#bookmark_right").hasClass("on"))
-        //         $("#bookmark_right").addClass("on");
-        // }
-
-        if (currentOnePageIdx == parseInt(bookmarkData[i].pageidx)) {
-            if (!$("#bookmark_onepage").hasClass("on"))
-            $("#bookmark_onepage").addClass("on");
-        }
-
-        if (currentPageIdx == parseInt(bookmarkData[i].pageidx)) {
-            if (!$("#bookmark_left").hasClass("on"))
-                $("#bookmark_left").addClass("on");
-        }
-
-        if ((currentPageIdx + 1) == parseInt(bookmarkData[i].pageidx)) {
-            if (!$("#bookmark_right").hasClass("on"))
-                $("#bookmark_right").addClass("on");
-        }
-        // console.log(epubPath);
-
-        $("#bookmarkList").append('<li>' +
-            '	<label class="chk">' +
-            '		<input id="chk_bookmark" type="checkbox" value="' + bookmarkData[i].pageidx + '" name="writeCheck"/><span class="ico"></span>' +
-            '	</label>' +
-            '	<p id="" class="bookmarksTxt">' + bookmarkData[i].title + '</p>' +
-            '	<div class="bookmarksImg" onClick="goPageWithIdx(\'' + bookmarkData[i].pageidx + '\')"" style="background:#000;">' +
-            '		<img src="' + epubDB.getThumbnail(epubPath, bookmarkData[i].pageidx).img + '">' +
-            '	</div>' +
-            '</li>');
-    }
+    for (var a = 0; a < bookmarkData.length; a++) null != bookmarkData[a] && (currentPageIdx == parseInt(bookmarkData[a].pageidx) && ($("#bookmark_left").hasClass("on") || $("#bookmark_left").addClass("on")), currentPageIdx + 1 == parseInt(bookmarkData[a].pageidx) && ($("#bookmark_right").hasClass("on") || $("#bookmark_right").addClass("on")), $("#bookmarkList").append('<li>\t<label class="chk">\t\t<input id="chk_bookmark" type="checkbox" value="' + bookmarkData[a].pageidx + '" name="writeCheck"/><span class="ico"></span>\t</label>\t<p id="" class="bookmarksTxt">' + bookmarkData[a].title + '</p>\t<div class="bookmarksImg" onClick="goPageWithIdx(\'' + bookmarkData[a].pageidx + '\')"" style="background:#000;">\t\t<img src="' + epubDB.getThumbnail(epubPath, bookmarkData[a].pageidx).img + '">\t</div></li>'))
 }
-
-// 2019.02.28 yena update
-// function loadOnePageBookmark() {
-//     //if (viewBox.mode !== "onepage") return;
-
-//     bookmarkData = null != localStorage.getItem("bookmark_" + epub_code) ? JSON.parse(localStorage.getItem("bookmark_" + epub_code)) : [];
-//     bookmarkData.sort(function(a, c) {
-//         return parseFloat(a.pageidx) - parseFloat(c.pageidx)
-//     });
-//     $("#bookmarkList").empty();
-//     $("#bookmark_onepage").removeClass("on");
-    
-//     for (var i = 0; i < bookmarkData.length; i++) {
-//         if (bookmarkData[i] == null) continue;
-
-//         if (currentOnePageIdx == parseInt(bookmarkData[i].pageidx)) {
-//             console.log(currentOnePageIdx, bookmarkData[i].pageidx);
-//             if (!$("#bookmark_onepage").hasClass("on"))
-//                 $("#bookmark_onepage").addClass("on");
-//         }
-
-//         $("#bookmarkList").append('<li>' +
-//             '	<label class="chk">' +
-//             '		<input id="chk_bookmark" type="checkbox" value="' + bookmarkData[i].pageidx + '" name="writeCheck"/><span class="ico"></span>' +
-//             '	</label>' +
-//             '	<p id="" class="bookmarksTxt">' + bookmarkData[i].title + '</p>' +
-//             '	<div class="bookmarksImg" onClick="goPageWithIdx(\'' + bookmarkData[i].pageidx + '\')"" style="background:#000;">' +
-//             '		<img src="' + epubDB.getThumbnail(epubPath, bookmarkData[i].pageidx).img + '">' +
-//             '	</div>' +
-//             '</li>');
-//     }
-// }
 
 function addBookmark(a) {
     a = currentPageIdx + parseInt(a);
@@ -920,23 +846,6 @@ function addBookmark(a) {
     });
     localStorage.setItem("bookmark_" + epub_code, JSON.stringify(bookmarkData));
     loadBookmark()
-}
-
-// 2019.02.28 yena update
-function addOnePageBookmark() {
-    a = currentOnePageIdx;
-    for (var b = !1, c = -1, d = 0; d < bookmarkData.length; d++)
-        if (null != bookmarkData[d] && bookmarkData[d].pageidx == a) {
-            b = !0;
-            c = d;
-            break
-        }
-    b ? bookmarkData.splice(c, 1) : bookmarkData.push({
-        pageidx: a,
-        title: a + "\ucabd"
-    });
-    localStorage.setItem("bookmark_" + epub_code, JSON.stringify(bookmarkData));
-    loadBookmark();
 }
 
 function removeBookmark(a) {
@@ -1239,7 +1148,7 @@ function resizeViewer() {
     moveNaviHandle();
     0 > parseInt($("#bottom_menu").css("bottom").replace("px", "")) && $("#bottom_menu").css("bottom", "-" + $(".navBottom").height() + "px");
     "oneside" == viewBox.mode ? (resizeOnePage(), $(".btnOne").hide(), $(".btnTwo").show(), $("#btn_zoom").hide(), $("#cover_bookmark").hide()) : ($(".btnOne").show(), $(".btnTwo").hide(), $("#btn_zoom").show(), $("#cover_bookmark").show())
-    //loadBookmark();
+
     // if ("oneside" == viewBox.mode) {
     //     resizeOnePage();
     //     $(".btnOne").hide();
@@ -2077,10 +1986,6 @@ $(document).ready(function() {
     });
     $("#bookmark_right").click(function() {
         addBookmark(1)
-    });
-    // 2019.02.28 yena update
-    $("#bookmark_onepage").click(function() {
-        addOnePageBookmark();
     });
     $("#btn_progress").click(function() {
         sideMenu.closeAll();
