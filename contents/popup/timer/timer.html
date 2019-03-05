@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta name="viewport" content="width=device-width, height=device-height, user-scalable=no">
 	<title>타이머</title>
 	<link rel="stylesheet" href="css/font/roboto.css" />
 	<link rel="stylesheet" href="css/style.css" />
@@ -83,20 +83,41 @@
 			window.close();
 		});
 		
-		function setScale() {
-			console.log('call setScale');
-			var targetEle = document.getElementById('timer_con');
-			var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-			var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-			hRatio = windowWidth / targetEle.clientWidth;
-			vRatio = windowHeight / targetEle.clientHeight;
+		// function setScale() {
+		// 	console.log('call setScale');
+		// 	var targetEle = document.getElementById('timer_con');
+		// 	var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+		// 	var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+		// 	hRatio = windowWidth / targetEle.clientWidth;
+		// 	vRatio = windowHeight / targetEle.clientHeight;
+			
+		// 	setTransform(targetEle, hRatio, vRatio);
+		// 	function setTransform(targetEle, hRatio, vRatio) {
+		// 	  targetEle.setAttribute('style', '-ms-transform: scale(' + hRatio + ',' + vRatio + ');'
+		// 		+ '-webkit-transform: scale(' + hRatio + ',' + vRatio + ');' + 'transform: scale(' + hRatio + ',' + vRatio + ');'
+		// 		+ 'transform-origin: 0% 0%; -webkit-transform-origin: 0% 0%; -ms-transform-origin: 0% 0%;'
+		// 		+ 'top: ' + ((windowHeight * hRatio) - 3) + 'px');
+		// 	}
+		// }
 
-			setTransform(targetEle, hRatio, vRatio);
-			function setTransform(targetEle, hRatio, vRatio) {
-			  targetEle.setAttribute('style', '-ms-transform: scale(' + hRatio + ',' + vRatio + ');'
-				+ '-webkit-transform: scale(' + hRatio + ',' + vRatio + ');' + 'transform: scale(' + hRatio + ',' + vRatio + ');'
-				+ 'transform-origin: 0% 0%; -webkit-transform-origin: 0% 0%; -ms-transform-origin: 0% 0%;');
-			}
+		// 2019.03.05 yena update
+		function setScale() {
+			var w = $(window).width();
+			var h = $(window).height();
+			
+			var sw = w / (parseFloat(1920));
+			var sh = h / (parseFloat(1080));
+			var scale = Math.min(sw, sh);
+
+			$("#timer_con").css("-moz-transform", "scale(" + scale + ")");
+			$("#timer_con").css("-moz-transform-origin", "0 0");
+			$("#timer_con").css("-o-transform", "scale(" + scale + ")");
+			$("#timer_con").css("-o-transform-origin", "0 0");
+			$("#timer_con").css("-webkit-transform", "scale(" + scale + ")");
+			$("#timer_con").css("-webkit-transform-origin", "0 0");
+			
+			$("#timer_con").css("margin-left", -(scale * 960) + "px");
+			$("#timer_con").css("margin-top", -(scale * 540) + "px");
 		}
 
 		setScale()

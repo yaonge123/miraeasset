@@ -1,17 +1,37 @@
+// function setScale() {
+//     var targetEle = document.getElementById("sikimi");
+//     var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+//     var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+//     var hRatio = windowWidth / targetEle.clientWidth;
+//     var vRatio = windowHeight / targetEle.clientHeight;
+
+//     setTransform(targetEle, hRatio, vRatio);
+
+//     function setTransform(targetEle, hRatio, vRatio) {
+//         targetEle.setAttribute("style", "-ms-transform: scale(" + hRatio + "," + vRatio + ");"
+//             + "-webkit-transform: scale(" + hRatio + "," + vRatio + ");" + "transform: scale(" + hRatio + "," + vRatio + ");"
+//             + "transform-origin: 0% 0%; -webkit-transform-origin: 0% 0%; -ms-transform-origin: 0% 0%;");
+//     }
+// }
+
+// 2019.03.05 yena update
 function setScale() {
-    var targetEle = document.getElementById("sikimi");
-    var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    var hRatio = windowWidth / targetEle.clientWidth;
-    var vRatio = windowHeight / targetEle.clientHeight;
+    var w = $(window).width();
+    var h = $(window).height();
+    
+    var sw = w / (parseFloat(1920));
+    var sh = h / (parseFloat(1080));
+    var scale = Math.min(sw, sh);
 
-    setTransform(targetEle, hRatio, vRatio);
-
-    function setTransform(targetEle, hRatio, vRatio) {
-        targetEle.setAttribute("style", "-ms-transform: scale(" + hRatio + "," + vRatio + ");"
-            + "-webkit-transform: scale(" + hRatio + "," + vRatio + ");" + "transform: scale(" + hRatio + "," + vRatio + ");"
-            + "transform-origin: 0% 0%; -webkit-transform-origin: 0% 0%; -ms-transform-origin: 0% 0%;");
-    }
+    $("#sikimi").css("-moz-transform", "scale(" + scale + ")");
+    $("#sikimi").css("-moz-transform-origin", "0 0");
+    $("#sikimi").css("-o-transform", "scale(" + scale + ")");
+    $("#sikimi").css("-o-transform-origin", "0 0");
+    $("#sikimi").css("-webkit-transform", "scale(" + scale + ")");
+    $("#sikimi").css("-webkit-transform-origin", "0 0");
+    
+    $("#sikimi").css("margin-left", -(scale * 960) + "px");
+    $("#sikimi").css("margin-top", -(scale * 540) + "px");
 }
 
 function aniInputArea() {

@@ -1,17 +1,37 @@
-function setScale() {
-    var targetEle = document.getElementById("helper");
-    var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    var hRatio = windowWidth / targetEle.clientWidth;
-    var vRatio = windowHeight / targetEle.clientHeight;
+// function setScale() {
+//     var targetEle = document.getElementById("helper");
+//     var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+//     var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+//     var hRatio = windowWidth / targetEle.clientWidth;
+//     var vRatio = windowHeight / targetEle.clientHeight;
 
-    setTransform(targetEle, hRatio, vRatio);
+//     setTransform(targetEle, hRatio, vRatio);
     
-    function setTransform(targetEle, hRatio, vRatio) {
-        targetEle.setAttribute("style", "-ms-transform: scale(" + hRatio + "," + vRatio + ");"
-            + "-webkit-transform: scale(" + hRatio + "," + vRatio + ");" + "transform: scale(" + hRatio + "," + vRatio + ");"
-            + "transform-origin: 0% 0%; -webkit-transform-origin: 0% 0%; -ms-transform-origin: 0% 0%;");
-    }
+//     function setTransform(targetEle, hRatio, vRatio) {
+//         targetEle.setAttribute("style", "-ms-transform: scale(" + hRatio + "," + vRatio + ");"
+//             + "-webkit-transform: scale(" + hRatio + "," + vRatio + ");" + "transform: scale(" + hRatio + "," + vRatio + ");"
+//             + "transform-origin: 0% 0%; -webkit-transform-origin: 0% 0%; -ms-transform-origin: 0% 0%;");
+//     }
+// }
+
+// 2019.03.05 yena update
+function setScale() {
+    var w = $(window).width();
+    var h = $(window).height();
+    
+    var sw = w / (parseFloat(1920));
+    var sh = h / (parseFloat(1080));
+    var scale = Math.min(sw, sh);
+
+    $("#helper").css("-moz-transform", "scale(" + scale + ")");
+    $("#helper").css("-moz-transform-origin", "0 0");
+    $("#helper").css("-o-transform", "scale(" + scale + ")");
+    $("#helper").css("-o-transform-origin", "0 0");
+    $("#helper").css("-webkit-transform", "scale(" + scale + ")");
+    $("#helper").css("-webkit-transform-origin", "0 0");
+    
+    $("#helper").css("margin-left", -(scale * 960) + "px");
+    $("#helper").css("margin-top", -(scale * 540) + "px");
 }
 
 function getHandler() {
