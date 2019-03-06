@@ -18,10 +18,12 @@ var epubDB = {
         getBasePath: function () {
             return "./files/contents/" + this.epubInfo.base_url
         },
+        // 2019.03.06 yena update
         getThumbnail: function (b, c) {
             return c <= this.base.pages.length - 1 && "" != this.base.pages[c].thumbnail ? {
                 idx: this.base.pages[c].idx,
-                img: "./files/contents/" + this.epubInfo.base_url + "/ebook/OEBPS/pp_thumbnail/" + this.base.pages[c].thumbnail
+                // img: "./files/contents/" + this.epubInfo.base_url + "/ebook/OEBPS/pp_thumbnail/" + this.base.pages[c].thumbnail
+                img: b + "/pp_thumbnail/" + this.base.pages[c].thumbnail
             } : {
                 idx: "0",
                 img: "./resources/img/common/empty.jpg"

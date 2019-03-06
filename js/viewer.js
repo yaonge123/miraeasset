@@ -786,17 +786,62 @@ function UnixTimestamp(a) {
     return a.substr(-2) + "." + c + "." + b
 }
 
+// 2019.03.05 yena update
 function loadWebLink() {
     WebLink.load();
     $("#webLinkList").empty();
     $(".linkicon").remove();
-    for (var a = 0, b = 0; b < WebLink.getLink().length; b++)
-        if ($("#webLinkList").append('<li>\t<label class="chk">\t\t<input id="chk_weblink" type="checkbox" value="' + WebLink.getLink()[b].idx + '" name="writeCheck"/><span class="ico"></span>\t<p><a class="weblink" href="' + WebLink.getLink()[b].url + '" target="_blank">' + limitWords(WebLink.getLink()[b].name, 12) + '</a>\t<span class="writeDate">' + UnixTimestamp(parseInt(WebLink.getLink()[b].idx)) + "</span>\t</p>\t</label></li>"), WebLink.getLink()[b].pidx == currentPageIdx) {
-            var c = WebLink.getLink()[b].idx,
+
+    var c, d, e = '';
+    
+    for (var a = 0, b = 0; b < WebLink.getLink().length; b++){
+        if (isWebview) {
+            $("#webLinkList").append('<li>\t<label class="chk">\t\t<input id="chk_weblink" type="checkbox" value="' 
+            + WebLink.getLink()[b].idx + 
+            '" name="writeCheck"/><span class="ico"></span>\t<p><a class="weblink" href="javascript:window.android.openWebBrowser(\'' 
+            + WebLink.getLink()[b].url 
+            + '\')">' 
+            + limitWords(WebLink.getLink()[b].name, 12) + 
+            '</a>\t<span class="writeDate">' + 
+            UnixTimestamp(parseInt(WebLink.getLink()[b].idx)) + 
+            "</span>\t</p>\t</label></li>");
+        } else {
+            $("#webLinkList").append('<li>\t<label class="chk">\t\t<input id="chk_weblink" type="checkbox" value="' 
+            + WebLink.getLink()[b].idx + 
+            '" name="writeCheck"/><span class="ico"></span>\t<p><a class="weblink" href="' 
+            + WebLink.getLink()[b].url + 
+            '" target="_blank">' 
+            + limitWords(WebLink.getLink()[b].name, 12) + 
+            '</a>\t<span class="writeDate">' 
+            + UnixTimestamp(parseInt(WebLink.getLink()[b].idx)) + 
+            "</span>\t</p>\t</label></li>");
+        }
+        
+        if (WebLink.getLink()[b].pidx == currentPageIdx) {
+                c = WebLink.getLink()[b].idx,
                 d = 10 + 70 * Math.floor(a / 10),
                 e = 60 + 70 * Math.floor(a);
-            // $("#cover_view_control").append("<div id='icon" + c + "' class='linkicon' style='position:absolute;top:" + d + "px;left:" + e + "px;z-index:10011;'><a class='weblink' href='" + WebLink.getLink()[b].url + "' target='_blank'><div class='icon_link'></div></a></div>");
-            $("#cover_view_control").append("<div id='icon" + c + "' class='linkicon' style='position:absolute;top:" + d + "px;left:" + e + "px;z-index:10011;'><a class='weblink' href='" + ((window.android !== undefined) ? "javascript:window.android.openWebBrowser(\"" + WebLink.getLink()[b].url + "\")" : WebLink.getLink()[b].url) + "' target='_blank'><div class='icon_link'></div></a></div>");
+            if (isWebview) {
+                $("#cover_view_control").append("<div id='icon" 
+                + c + 
+                "' class='linkicon' style='position:absolute;top:" 
+                + d + 
+                "px;left:" 
+                + e + 
+                "px;z-index:10011;'><a class='weblink' href='javascript:window.android.openWebBrowser(\""
+                 + WebLink.getLink()[b].url + 
+                 "\")'><div class='icon_link'></div></a></div>");
+            }else {
+                $("#cover_view_control").append("<div id='icon" 
+                + c + 
+                "' class='linkicon' style='position:absolute;top:" 
+                + d + 
+                "px;left:" 
+                + e + 
+                "px;z-index:10011;'><a class='weblink' href='" 
+                + WebLink.getLink()[b].url + 
+                "><div class='icon_link'></div></a></div>");
+            }
             $("#icon" + c).draggable({
                 cancel: ".clickable",
                 revert: !1,
@@ -804,7 +849,7 @@ function loadWebLink() {
             });
             a++
         }
-
+    }
     // 2019.02.19 왕예나 추가
     //clickWebLink();
 }
