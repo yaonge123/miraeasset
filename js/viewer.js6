@@ -645,6 +645,17 @@ function pageLoad() {
 
         $("#page_selector_left").attr("src", (pageInfo[0] == undefined || pageInfo[0].url == "") ? "./resources/img/common/empty.jpg" : epubPath + pageInfo[0].url.replace("p", "/pp_thumbnail/").replace(".xhtml", ".jpg"));
         $("#page_selector_right").attr("src", epubPath + pageInfo[1].url.replace("p", "/pp_thumbnail/").replace(".xhtml", ".jpg"));
+        
+        // 2019.03.06 yena update
+        $("#naviBackImage").attr("src", function() {
+            if (pageInfo[0] == undefined || pageInfo[0].url == "") return "./resources/img/common/empty.jpg";
+
+            if (currentOnePageIdx % 2 == 0) {
+                return epubPath + pageInfo[0].url.replace("p", "/pp_thumbnail/").replace(".xhtml", ".jpg");
+            } else {
+                return epubPath + pageInfo[1].url.replace("p", "/pp_thumbnail/").replace(".xhtml", ".jpg");
+            }
+        });
     }
 
     resizeViewer();
@@ -828,10 +839,18 @@ function loadWebLink() {
                 + d + 
                 "px;left:" 
                 + e + 
-                "px;z-index:10011;'><a class='weblink' href='javascript:window.android.openWebBrowser(\""
-                 + WebLink.getLink()[b].url + 
+                "px;z-index:10011;'><a class='weblink' href='javascript:window.android.openWebBrowser(\""+ WebLink.getLink()[b].url + 
                  "\")'><div class='icon_link'></div></a></div>");
-            }else {
+
+                 $("#cover_onepage").append("<div id='icon" 
+                 + c + 
+                 "' class='linkicon' style='position:absolute;top:" 
+                 + d + 
+                 "px;left:" 
+                 + e + 
+                 "px;z-index:10011;'><a class='weblink' href='javascript:window.android.openWebBrowser(\""+ WebLink.getLink()[b].url + 
+                 "\")'><div class='icon_link'></div></a></div>");
+            } else {
                 $("#cover_view_control").append("<div id='icon" 
                 + c + 
                 "' class='linkicon' style='position:absolute;top:" 
@@ -840,9 +859,19 @@ function loadWebLink() {
                 + e + 
                 "px;z-index:10011;'><a class='weblink' href='" 
                 + WebLink.getLink()[b].url + 
-                "><div class='icon_link'></div></a></div>");
+                "' target='_blank'><div class='icon_link'></div></a></div>");
+
+                $("#cover_onepage").append("<div id='icon" 
+                + c + 
+                "' class='linkicon' style='position:absolute;top:" 
+                + d + 
+                "px;left:" 
+                + e + 
+                "px;z-index:10011;'><a class='weblink' href='" 
+                + WebLink.getLink()[b].url + 
+                "' target='_blank'><div class='icon_link'></div></a></div>");
             }
-            $("#icon" + c).draggable({
+            $(".linkicon").draggable({
                 cancel: ".clickable",
                 revert: !1,
                 iframeFix: !0
@@ -1224,7 +1253,7 @@ function resizeViewer() {
     viewBox.h = e;
     svgViewBox.scale = d / svgViewBox.w;
     pageWidth = d;
-    isZooming ? (a < 2 * d ? ($("#btn_move_left").show(), $("#btn_move_right").show()) : ($("#btn_move_left").hide(), $("#btn_move_right").hide()), b < e ? ($("#btn_move_up").show(), $("#btn_move_down").show()) : ($("#btn_move_up").hide(), $("#btn_move_down").hide()), $("#naviViewport").show()) : ($("#btn_move_left").hide(), $("#btn_move_right").hide(), $("#btn_move_up").hide(), $("#btn_move_down").hide(), $("#naviViewport").hide(), $("#btn_zoom").removeClass("btnZoomOut").addClass("btnZoomIn"));
+    isZooming ? (a < 2 * d ? ($("#btn_move_left").show(), $("#btn_move_right").show()) : ($("#btn_move_left").hide(), $("#btn_move_right").hide()), b < e ? ($("#btn_move_up").show(), $("#btn_move_down").show()) : ($("#btn_move_up").hide(), $("#btn_move_down").hide()), $("#naviViewport").show(), $("#naviOnePageViewport").show()) : ($("#btn_move_left").hide(), $("#btn_move_right").hide(), $("#btn_move_up").hide(), $("#btn_move_down").hide(), $("#naviViewport").hide(), $("#btn_zoom").removeClass("btnZoomOut").addClass("btnZoomIn"),  $("#naviOnePageViewport").hide());
     $("#cover_view_control").width(2 * d);
     $("#cover_view_control").height(e);
     isLoadedPageFlip && $(".flipbook").turn("size", 2 * d, e);
@@ -1283,7 +1312,20 @@ function resizeViewer() {
     $("#tool_drawing").css("left", 200);
     moveNaviHandle();
     0 > parseInt($("#bottom_menu").css("bottom").replace("px", "")) && $("#bottom_menu").css("bottom", "-" + $(".navBottom").height() + "px");
-    "oneside" == viewBox.mode ? (resizeOnePage(), $(".btnOne").hide(), $(".btnTwo").show(), $("#btn_zoom").hide(), $("#cover_bookmark").hide()) : ($(".btnOne").show(), $(".btnTwo").hide(), $("#btn_zoom").show(), $("#cover_bookmark").show())
+    // 2019.03.06 yena update
+    //"oneside" == viewBox.mode ? (resizeOnePage(), $(".btnOne").hide(), $(".btnTwo").show(), $("#btn_zoom").hide(), $("#cover_bookmark").hide()) : ($(".btnOne").show(), $(".btnTwo").hide(), $("#btn_zoom").show(), $("#cover_bookmark").show())
+    if ("oneside" == viewBox.mode) { 
+        resizeOnePage();
+        $(".btnOne").hide();
+        $(".btnTwo").show();
+        //$("#btn_zoom").hide();
+        $("#cover_bookmark").hide();
+    } else {
+        $(".btnOne").show();
+        $(".btnTwo").hide();
+        //$("#btn_zoom").show();
+        $("#cover_bookmark").show();
+    }
     //loadBookmark();
     // if ("oneside" == viewBox.mode) {
     //     resizeOnePage();
@@ -1324,7 +1366,7 @@ function resizeViewer() {
             top: ""
         });
         hideQuickMenu();
-        $("#naviViewport").css({
+        $(".viewportPopup").css({
             left: "",
             top: ""
         });
@@ -1579,7 +1621,7 @@ function resizeOnePage() {
         });
         hideQuickMenu();
 
-		$("#naviViewport").css({
+		$(".viewportPopup").css({
             left: "",
             top: ""
         });
@@ -1883,7 +1925,7 @@ $(document).ready(function() {
     var a = $(window).width();
     $(window).height();
     a = a - 150 - 90;
-    $("#naviViewport").draggable().css("top", "50px").css("left", a + "px");
+    $(".viewportPopup").draggable().css("top", "50px").css("left", a + "px");
     $("#naviHandle").draggable({
         containment: "#naviHandleArea",
         scroll: !1,
@@ -1894,7 +1936,7 @@ $(document).ready(function() {
         stop: function() {}
     });
     $("#tool_drawing").draggable();
-    $("#btn_close_navi").click(function() {
+    $(".btn_close_navi").click(function() {
         closeZoom()
     });
     $(".page_prev").click(function() {
@@ -2295,14 +2337,6 @@ function touchMove(a) {
             left: b,
             top: a
         });
-        // $("#bookcover").css({
-        //     left: b,
-        //     top: a
-        // });
-        // $("#cover_view_control").css({
-        //     left: b,
-        //     top: a
-        // });
         $("#canvas_highlight").css("left", b).css("top", a);
         $("#cover_drawing").css("left", b).css("top", a);
         moveNaviHandle()
@@ -2310,8 +2344,8 @@ function touchMove(a) {
 }
 
 function touchDown(a) {
-    fX = parseFloat($("#cover_view_control").offset().left);
-    fY = parseFloat($("#cover_view_control").offset().top);
+    fX = parseFloat($("#cover_view_control").css("left"));
+    fY = parseFloat($("#cover_view_control").css("top"));
     curDown = !0;
     isMobile() ? (curXPos = a.touches[0].clientX, curYPos = a.touches[0].clientY) : (curXPos = a.clientX, curYPos = a.clientY);
     lastXPos = curXPos;
