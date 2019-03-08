@@ -274,10 +274,6 @@ if(isWebview){
     alert = function( MSG ){
         window.android.alert(MSG);
     }
-    // $("#bottom_menu").hide();
-
-	// window.android.log(epub_code);
-	// window.android.log(epubPath);
 } else {
     epub_code = "5c4034192971b";
     epubPath = "./files/contents/5c4034192971b/ebook/OEBPS";
@@ -438,60 +434,16 @@ function loadEpub() {
     } else {
         initEpub();
     }
-
-	/*
-	epub_code = window.android.getEpubCode();
-	epubPath = window.android.getEpubPath();
-
-    null == epubDB.base ? $.getJSON("/index.php/epub/info/" + epub_code + "/" + preview + "/", {}).done(function(a) {
-        epubDB.base = a;
-        epubDB.epubInfo = a.info;
-        epubDB.epubToc = a.toc;
-        initEpub()
-    }).fail(function(a, b, c) {
-        console.log("Request Failed: " + (b + ", " + c));
-        $(".cover_loader").hide()
-    }) : initEpub()
-	*/
 }
 
 
 function initEpub() {
     epubDB.epubInfo.startpage = 0;
-    /*
-    epubDB.epubInfo.menu_toc="Y";
-    epubDB.epubInfo.menu_thumb="Y";
-    epubDB.epubInfo.menu_single="Y";
-    epubDB.epubInfo.menu_double="Y";
-    epubDB.epubInfo.menu_highlight="Y";
-    epubDB.epubInfo.menu_draw="Y";
-    epubDB.epubInfo.menu_bookmark="Y";
-    epubDB.epubInfo.menu_help="Y";
-    epubDB.epubInfo.menu_search="Y";
-
-    if(epubDB.epubInfo.menu_toc=="Y") $(".topBtnList").css("display", "inline-block");
-    if(epubDB.epubInfo.menu_thumb=="Y") $(".topBtnThumbnail").css("display", "inline-block");
-    if(epubDB.epubInfo.menu_single=="Y") $(".topBtnOne").css("display", "inline-block");
-    if(epubDB.epubInfo.menu_double=="Y") $(".topBtnTwo").css("display", "inline-block");
-    if(epubDB.epubInfo.menu_highlight=="Y") $(".topBtnHighlight").css("display", "inline-block");
-    if(epubDB.epubInfo.menu_draw=="Y") $(".drawing").css("display", "inline-block");
-    if(epubDB.epubInfo.menu_bookmark=="Y") $(".topBtnBookmark").css("display", "inline-block");
-    if(epubDB.epubInfo.menu_help=="Y") $(".help").css("display", "inline-block");
-    //if(epubDB.epubInfo.menu_search=="Y") $("#bottom_menu .search").css("visibility", "visible"); //$(".search").show();
-    //else $("#bottom_menu .search").css("visibility", "hidden"); //$(".search").hide();
-    */
-
-    //console.log("Epub Info #########################");
-    //console.log(epubDB.epubInfo);
-    //console.log("Epub Toc #########################");
-    //console.log(epubDB.epubToc);
 
     pages = [];
     for (var i = 0; i < epubDB.base.pages.length; i++) {
         pages.push(epubDB.base.pages[i].url);
     }
-    //console.log("Epub Pages #########################");
-    //console.log(pages);
 
     /// 목차
     var parentIdx = -1;
@@ -525,33 +477,6 @@ function initEpub() {
     $(".cover_loader").hide();
 }
 
-
-/*
-function initEpub() {
-    epubDB.epubInfo.startpage = 0;
-    pages = [];
-    for (var a = 0; a < epubDB.base.pages.length; a++) "HP" == creator ? 0 <= epubDB.base.pages[a].url.indexOf("blank") ? pages.push(epubDB.base.pages[a].url) : pages.push("/files/contents/" + epubDB.epubInfo.base_url + "/ebook/OEBPS/" + epubDB.base.pages[a].url) : pages.push("/files/contents/" + epubDB.epubInfo.base_url + "/ebook/OEBPS/" + epubDB.base.pages[a].url);
-    var b = -1;
-    for (a = 0; a < epubDB.epubToc.length; a++)
-        if ("1" == epubDB.epubToc[a].depth && void 0 !== epubDB.epubToc[a + 1] && "2" == epubDB.epubToc[a + 1].depth && (b = epubDB.epubToc[a].idx), "pd" != preview && 0 < epubDB.epubInfo.limitpage)
-            for (var c = 0; c < epubDB.base.pages.length; c++) {
-                if (0 <= epubDB.base.pages[c].url.indexOf(epubDB.epubToc[a].url)) {
-                    addToc(epubDB.epubToc[a].url, epubDB.epubToc[a].title, epubDB.epubToc[a].idx, epubDB.epubToc[a].depth, void 0 !== epubDB.epubToc[a + 1] && "2" == epubDB.epubToc[a + 1].depth ? !0 : !1, b);
-                    break
-                }
-            } else addToc(epubDB.epubToc[a].url, epubDB.epubToc[a].title, epubDB.epubToc[a].idx, epubDB.epubToc[a].depth, void 0 !== epubDB.epubToc[a + 1] && "2" == epubDB.epubToc[a + 1].depth ? !0 : !1, b);
-    initPageSlider();
-    loadPageInfo(0);
-    loadBookmark();
-    loadProgress();
-    resizeViewer();
-    $(".cover_loader").hide();
-    setTimeout(function() {
-            void 0 !== window.viewer && "undefined" !== typeof window.viewer.onPageMoved && window.viewer.startCache()
-        },
-        2E3)
-}
-*/
 function loadPageFlipAni() {
     for (var a, b = 0; b < Number(epubDB.epubInfo.totalpage); b++) a = $("<div style='background-image:url(" + epubPath + "/pp_print/" + pageFormat(b + 1) + "." + imgFormat + ")'></div>"),
         $(".flipbook").append(a);
@@ -642,6 +567,13 @@ function pageLoad() {
 
         $("#naviBackImageLeft").attr("src", (pageInfo[0] == undefined || pageInfo[0].url == "") ? "./resources/img/common/empty.jpg" : epubPath + pageInfo[0].url.replace("p", "/pp_thumbnail/").replace(".xhtml", ".jpg"));
         $("#naviBackImageRight").attr("src", epubPath + pageInfo[1].url.replace("p", "/pp_thumbnail/").replace(".xhtml", ".jpg"));
+        // 2019.03.07 yena update
+        $("#naviBackImage").attr("src", function() {
+            if (pageInfo[0] == undefined || pageInfo[0].url == "") return "./resources/img/common/empty.jpg";
+            
+            if (currentOnePageIdx % 2 == 0) return epubPath + pageInfo[0].url.replace("p", "/pp_thumbnail/").replace(".xhtml", ".jpg");
+            else return epubPath + pageInfo[1].url.replace("p", "/pp_thumbnail/").replace(".xhtml", ".jpg");
+        });
 
         $("#page_selector_left").attr("src", (pageInfo[0] == undefined || pageInfo[0].url == "") ? "./resources/img/common/empty.jpg" : epubPath + pageInfo[0].url.replace("p", "/pp_thumbnail/").replace(".xhtml", ".jpg"));
         $("#page_selector_right").attr("src", epubPath + pageInfo[1].url.replace("p", "/pp_thumbnail/").replace(".xhtml", ".jpg"));
@@ -725,24 +657,6 @@ function addProgress(a, b) {
     showSnackBar("snackbar_saved");
 }
 
-// function addProgress(a, b) {
-//     null != localStorage.getItem("progress_" + epub_code) && (progressData = JSON.parse(localStorage.getItem("progress_" + epub_code)));
-//     var c = new Date;
-//     c = dateFormat(c.getMonth() + 1) + "/" + dateFormat(c.getDate());
-//     var d = (new Date).getTime();
-//     progressData.push({
-//         idx: currentPageIdx,
-//         level: a,
-//         class: b,
-//         regdate: c,
-//         timestamp: d
-//     });
-//     localStorage.setItem("progress_" + epub_code, JSON.stringify(progressData));
-//     $("#popupProgress").hide();
-//     loadProgress();
-//     showSnackBar("snackbar_saved")
-// }
-
 // 2019.01.17 왕예나 추가
 function removeProgress(val) {
 
@@ -767,16 +681,6 @@ function removeProgress(val) {
         loadProgress();
     }
 }
-
-// function removeProgress(a) {
-//     a = a.split("|");
-//     for (var b = -1, c = 0; c < progressData.length; c++)
-//         if (null != progressData[c] && progressData[c].idx == parseInt(a[0]) && progressData[c].level == parseInt(a[1]) && progressData[c].class == parseInt(a[2])) {
-//             b = c;
-//             break
-//         }
-//     0 <= b && (progressData.splice(b, 1), localStorage.setItem("progress_" + epub_code, JSON.stringify(progressData)), loadProgress())
-// }
 
 function UnixTimestamp(a) {
     var b = new Date(a);
@@ -805,18 +709,8 @@ function loadWebLink() {
             '</a>\t<span class="writeDate">' + 
             UnixTimestamp(parseInt(WebLink.getLink()[b].idx)) + 
             "</span>\t</p>\t</label></li>");
-        } else {
-            $("#webLinkList").append('<li>\t<label class="chk">\t\t<input id="chk_weblink" type="checkbox" value="' 
-            + WebLink.getLink()[b].idx + 
-            '" name="writeCheck"/><span class="ico"></span>\t<p><a class="weblink" href="' 
-            + WebLink.getLink()[b].url + 
-            '" target="_blank">' 
-            + limitWords(WebLink.getLink()[b].name, 12) + 
-            '</a>\t<span class="writeDate">' 
-            + UnixTimestamp(parseInt(WebLink.getLink()[b].idx)) + 
-            "</span>\t</p>\t</label></li>");
-        }
-        
+        } 
+
         if (WebLink.getLink()[b].pidx == currentPageIdx) {
                 c = WebLink.getLink()[b].idx,
                 d = 10 + 70 * Math.floor(a / 10),
@@ -831,18 +725,24 @@ function loadWebLink() {
                 "px;z-index:10011;'><a class='weblink' href='javascript:window.android.openWebBrowser(\""
                  + WebLink.getLink()[b].url + 
                  "\")'><div class='icon_link'></div></a></div>");
-            }else {
-                $("#cover_view_control").append("<div id='icon" 
-                + c + 
-                "' class='linkicon' style='position:absolute;top:" 
-                + d + 
-                "px;left:" 
-                + e + 
-                "px;z-index:10011;'><a class='weblink' href='" 
-                + WebLink.getLink()[b].url + 
-                "><div class='icon_link'></div></a></div>");
+
+                 $("#cover_onepage").append("<div id='iconOnepg" 
+                 + c + 
+                 "' class='linkicon' style='position:absolute;top:" 
+                 + d + 
+                 "px;left:" 
+                 + e + 
+                 "px;z-index:10011;'><a class='weblink' href='javascript:window.android.openWebBrowser(\""
+                  + WebLink.getLink()[b].url + 
+                  "\")'><div class='icon_link'></div></a></div>");
             }
+
             $("#icon" + c).draggable({
+                cancel: ".clickable",
+                revert: !1,
+                iframeFix: !0
+            });
+            $("#iconOnepg" + c).draggable({
                 cancel: ".clickable",
                 revert: !1,
                 iframeFix: !0
@@ -850,22 +750,7 @@ function loadWebLink() {
             a++
         }
     }
-    // 2019.02.19 왕예나 추가
-    //clickWebLink();
 }
-
-// function clickWebLink() {
-//     $(".weblink").on("click", function(e) {
-//         // 뷰어 -> 안드로이드
-//         // 페이지 건네주기
-
-//         e.stopPropagation();
-
-//         var link = $(this).attr("href");
-//         if (isWebview) window.android.openWebBrowser(link);
-//         //window.android.openInternalBrowser("/resources/contents/popup/timer/timer.html");
-//     });
-// }
 
 // 2019.02.28 yena update
 function loadBookmark() {
@@ -880,16 +765,6 @@ function loadBookmark() {
     
     for (var i = 0; i < bookmarkData.length; i++) {
         if (bookmarkData[i] == null) continue;
-
-        // if (currentPageIdx == parseInt(bookmarkData[i].pageidx)) {
-        //     if (!$("#bookmark_left").hasClass("on"))
-        //         $("#bookmark_left").addClass("on");
-        // }
-
-        // if ((currentPageIdx + 1) == parseInt(bookmarkData[i].pageidx)) {
-        //     if (!$("#bookmark_right").hasClass("on"))
-        //         $("#bookmark_right").addClass("on");
-        // }
 
         if (currentOnePageIdx == parseInt(bookmarkData[i].pageidx)) {
             if (!$("#bookmark_onepage").hasClass("on"))
@@ -918,38 +793,6 @@ function loadBookmark() {
             '</li>');
     }
 }
-
-// 2019.02.28 yena update
-// function loadOnePageBookmark() {
-//     //if (viewBox.mode !== "onepage") return;
-
-//     bookmarkData = null != localStorage.getItem("bookmark_" + epub_code) ? JSON.parse(localStorage.getItem("bookmark_" + epub_code)) : [];
-//     bookmarkData.sort(function(a, c) {
-//         return parseFloat(a.pageidx) - parseFloat(c.pageidx)
-//     });
-//     $("#bookmarkList").empty();
-//     $("#bookmark_onepage").removeClass("on");
-    
-//     for (var i = 0; i < bookmarkData.length; i++) {
-//         if (bookmarkData[i] == null) continue;
-
-//         if (currentOnePageIdx == parseInt(bookmarkData[i].pageidx)) {
-//             console.log(currentOnePageIdx, bookmarkData[i].pageidx);
-//             if (!$("#bookmark_onepage").hasClass("on"))
-//                 $("#bookmark_onepage").addClass("on");
-//         }
-
-//         $("#bookmarkList").append('<li>' +
-//             '	<label class="chk">' +
-//             '		<input id="chk_bookmark" type="checkbox" value="' + bookmarkData[i].pageidx + '" name="writeCheck"/><span class="ico"></span>' +
-//             '	</label>' +
-//             '	<p id="" class="bookmarksTxt">' + bookmarkData[i].title + '</p>' +
-//             '	<div class="bookmarksImg" onClick="goPageWithIdx(\'' + bookmarkData[i].pageidx + '\')"" style="background:#000;">' +
-//             '		<img src="' + epubDB.getThumbnail(epubPath, bookmarkData[i].pageidx).img + '">' +
-//             '	</div>' +
-//             '</li>');
-//     }
-// }
 
 function addBookmark(a) {
     a = currentPageIdx + parseInt(a);
@@ -1103,88 +946,6 @@ function searchKeyword(_keyword) {
         $(".cover_loader").hide();
         $("#modalSearchResults").modal();
     }
-
-    // $(".cover_loader").show();
-    // keyword = a;
-    // $.getJSON("/index.php/epub/search/" + epub_code + "/" + encodeURI(keyword) + "/", {}).done(function(a) {
-    //     $(".searchResult").show();
-    //     $("#searched_keyword").text(keyword);
-    //     $("#searched_total").text(a.length);
-    //     $("#contents_search").empty();
-    //     if (resultType === TYPE_SLIDE) {
-    //         for (var b = 0; b < a.length; b++) $("#contents_search").append("<li onclick=\"goSearchPage('" + a[b].go_page_idx + '\')">\t<div class="searchImg" style="background:#000;">\t\t<img src="' + epubDB.getThumbnail(epubPath, a[b].page_idx).img + '">\t\t<span>' + a[b].page_idx + "</span>\t</div>\t<p>" + a[b].contents.replace(keyword, "<span>" + keyword + "</span>") + "</p></li>");
-    //         $(".cover_loader").hide();
-    //         sideMenu.open(SIDEMENU_SEARCH)
-    //     } else $("#jsGrid").jsGrid({
-    //             width: "100%",
-    //             height: "400px",
-    //             inserting: !1,
-    //             editing: !1,
-    //             sorting: !1,
-    //             paging: !0,
-    //             data: a,
-    //             rowClick: function() {},
-    //             fields: [{
-    //                     name: "page_idx",
-    //                     type: "number",
-    //                     title: "Page",
-    //                     width: 100,
-    //                     validate: "required",
-    //                     sorting: !1,
-    //                     align: "center"
-    //                 },
-    //                 {
-    //                     name: "thumbnail",
-    //                     itemTemplate: function(a, b) {
-    //                         return $("<img>").attr("src", a).css({
-    //                             height: 110,
-    //                             width: 80
-    //                         }).on("click", function() {})
-    //                     },
-    //                     insertTemplate: function() {
-    //                         return this.insertControl = $("<input>").prop("type", "file")
-    //                     },
-    //                     insertValue: function() {
-    //                         return this.insertControl[0].files[0]
-    //                     },
-    //                     title: "Thumbnail",
-    //                     align: "center",
-    //                     width: 100,
-    //                     sorting: !1
-    //                 },
-    //                 {
-    //                     name: "contents",
-    //                     type: "text",
-    //                     title: "Contents",
-    //                     width: 274,
-    //                     sorting: !1
-    //                 },
-    //                 {
-    //                     name: "go_page_idx",
-    //                     title: "Go",
-    //                     width: 90,
-    //                     align: "center",
-    //                     itemTemplate: function(a, b) {
-    //                         return $("<button type='button' class='btn btn-primary'>").text("Go").on("click", function() {
-    //                             $("#modalSearchResults").modal("hide");
-    //                             setViewMode(2);
-    //                             requestedPage = parseInt(a) + parseInt(epubDB.epubInfo.startpage);
-    //                             goPage();
-    //                             setTimeout(function() {
-    //                                     drawHighlight()
-    //                                 },
-    //                                 1800);
-    //                             return !1
-    //                         })
-    //                     }
-    //                 }
-    //             ]
-    //         }),
-    //         $(".cover_loader").hide(),
-    //         $("#modalSearchResults").modal()
-    // }).fail(function(a, c, d) {
-    //     console.log("Request Failed: " + (c + ", " + d))
-    // })
 }
 
 function resizeBookcover() {
@@ -1207,6 +968,7 @@ function resizeBookcover() {
     })
 }
 
+// 2019.03.07 yena update
 function resizeViewer() {
     resizeBookcover();
     var a = $(window).width(),
@@ -1217,14 +979,55 @@ function resizeViewer() {
     viewPort.w = a;
     viewPort.h = b;
     viewBox.scale = Math.min(d, e);
-    isZooming ? (viewBox.scale *= parseInt(viewBox.zoom) / 100, $("#btn_move_left").show(), $("#btn_move_right").show(), $("#btn_move_up").show(), $("#btn_move_down").show()) : ($("#btn_move_left").hide(), $("#btn_move_right").hide(), $("#btn_move_up").hide(), $("#btn_move_down").hide());
+    // isZooming ? (viewBox.scale *= parseInt(viewBox.zoom) / 100, $("#btn_move_left").show(), $("#btn_move_right").show(), $("#btn_move_up").show(), $("#btn_move_down").show()) : ($("#btn_move_left").hide(), $("#btn_move_right").hide(), $("#btn_move_up").hide(), $("#btn_move_down").hide());
+    if (isZooming) {
+        viewBox.scale *= parseInt(viewBox.zoom) / 100;
+
+        $("#btn_move_left").show();
+        $("#btn_move_right").show();
+        $("#btn_move_up").show();
+        $("#btn_move_down").show();
+    } else {
+        $("#btn_move_left").hide();
+        $("#btn_move_right").hide();
+        $("#btn_move_up").hide();
+        $("#btn_move_down").hide();
+    }
     d = epubDB.epubInfo.width * viewBox.scale;
     e = epubDB.epubInfo.height * viewBox.scale;
     viewBox.w = d;
     viewBox.h = e;
     svgViewBox.scale = d / svgViewBox.w;
     pageWidth = d;
-    isZooming ? (a < 2 * d ? ($("#btn_move_left").show(), $("#btn_move_right").show()) : ($("#btn_move_left").hide(), $("#btn_move_right").hide()), b < e ? ($("#btn_move_up").show(), $("#btn_move_down").show()) : ($("#btn_move_up").hide(), $("#btn_move_down").hide()), $("#naviViewport").show()) : ($("#btn_move_left").hide(), $("#btn_move_right").hide(), $("#btn_move_up").hide(), $("#btn_move_down").hide(), $("#naviViewport").hide(), $("#btn_zoom").removeClass("btnZoomOut").addClass("btnZoomIn"));
+    // isZooming ? (a < 2 * d ? ($("#btn_move_left").show(), $("#btn_move_right").show()) : ($("#btn_move_left").hide(), $("#btn_move_right").hide()), b < e ? ($("#btn_move_up").show(), $("#btn_move_down").show()) : ($("#btn_move_up").hide(), $("#btn_move_down").hide()), $("#naviViewport").show()) : ($("#btn_move_left").hide(), $("#btn_move_right").hide(), $("#btn_move_up").hide(), $("#btn_move_down").hide(), $("#naviViewport").hide(), $("#btn_zoom").removeClass("btnZoomOut").addClass("btnZoomIn"));
+    if (isZooming) {
+        if (a < 2 * d) {
+            $("#btn_move_left").show();
+            $("#btn_move_right").show();
+        } else {
+            $("#btn_move_left").hide();
+            $("#btn_move_right").hide();
+        }
+        if (b < e) {
+            $("#btn_move_up").show();
+            $("#btn_move_down").show();
+        } else {
+            $("#btn_move_up").hide();
+            $("#btn_move_down").hide();
+        }
+        
+        if (viewBox.mode !== "oneside") $("#naviViewport").show();
+        else $("#naviOnePageViewport").show();
+    } else {
+        $("#btn_move_left").hide();
+        $("#btn_move_right").hide();
+        $("#btn_move_up").hide();
+        $("#btn_move_down").hide();
+        $("#btn_zoom").removeClass("btnZoomOut").addClass("btnZoomIn");
+        
+        if (viewBox.mode !== "oneside") $("#naviViewport").hide();
+        else $("#naviOnePageViewport").hide();
+    }
     $("#cover_view_control").width(2 * d);
     $("#cover_view_control").height(e);
     isLoadedPageFlip && $(".flipbook").turn("size", 2 * d, e);
@@ -1283,53 +1086,22 @@ function resizeViewer() {
     $("#tool_drawing").css("left", 200);
     moveNaviHandle();
     0 > parseInt($("#bottom_menu").css("bottom").replace("px", "")) && $("#bottom_menu").css("bottom", "-" + $(".navBottom").height() + "px");
-    "oneside" == viewBox.mode ? (resizeOnePage(), $(".btnOne").hide(), $(".btnTwo").show(), $("#btn_zoom").hide(), $("#cover_bookmark").hide()) : ($(".btnOne").show(), $(".btnTwo").hide(), $("#btn_zoom").show(), $("#cover_bookmark").show())
-    //loadBookmark();
-    // if ("oneside" == viewBox.mode) {
-    //     resizeOnePage();
-    //     $(".btnOne").hide();
-    //     $(".btnTwo").show();
-    //     $("#btn_zoom").hide();
-    //     // $("#cover_bookmark").hide();
-    //     //$("#cover_view_control").hide();
-    //     $("#cover_leftpage").hide();
-    //     $("#cover_rightpage").hide();
-    // } else {
-    //     $(".btnOne").show();
-    //     $(".btnTwo").hide();
-    //     $("#btn_zoom").show();
-    //     $("#cover_leftpage").show();
-    //     $("#cover_rightpage").show();
-    //     // $("#cover_bookmark").show();
-    //     //$("#cover_view_control").show();
-    // }
+    "oneside" == viewBox.mode ? (resizeOnePage(), $(".btnOne").hide(), $(".btnTwo").show(), $("#cover_bookmark").hide()) : ($(".btnOne").show(), $(".btnTwo").hide(), $("#cover_bookmark").show())
+    // 2019.03.04 yena update
+    loadBookmark();
 
     // 2019.01.18 왕예나 추가
     if (isWebview) {
         if (viewBox.mode !== "oneside") {
-            $(".quickMenu .quickbtn .btnQuickText").css({
-                width: width,
-                height: height
-            });
+            $(".quickMenu .quickbtn .btnQuickText").css({ width: width, height: height });
             $(".btnQuickText").parent().css("display", "inline-block");
-            // $(".btnQuickText").parent().css({
-            //     width: 
-            //     height: 0
-            // });
         }
         
         //퀵메뉴, 확대창 돌려놓기
-        $(".quickMenu").css({
-            left: "",
-            top: ""
-        });
+        $(".quickMenu").css({ left: "", top: "" });
         hideQuickMenu();
-        $("#naviViewport").css({
-            left: "",
-            top: ""
-        });
+        $("#naviViewport").css({ left: "", top: "" });
     }
-
 }
 
 function moveNaviHandle() {
@@ -1345,6 +1117,20 @@ function moveNaviHandle() {
     }
 }
 
+// 2019.03.07 yena update
+function moveNaviOneHandle() {
+    if (100 == viewBox.zoom) $("#naviOneHandle").css("top", 0),
+        $("#naviOneHandle").css("left", 0);
+    else {
+        var a = $("#cover_onepage").offset().top,
+            b = $("#cover_onepage").offset().left;
+        b = viewPort.vw < viewPort.w ? 0 : -b * (parseFloat($("#naviHandleOneArea").width()) / viewPort.vw);
+        a = viewPort.vh < viewPort.h ? 0 : -a * (parseFloat($("#naviHandleOneArea").height()) / viewPort.vh);
+        $("#naviOneHandle").css("top", a);
+        $("#naviOneHandle").css("left", b)
+    }
+}
+
 function moveContentsViewer() {
     var a = $(window).width(),
         b = $(window).height(),
@@ -1354,6 +1140,36 @@ function moveContentsViewer() {
         f = parseFloat($("#cover_view_control").height());
     d = -(d * (e / parseFloat($("#naviHandleArea").width())));
     c = -(c * (f / parseFloat($("#naviHandleArea").height())));
+    e < a && (d = (a - e) / 2);
+    f < b && (c = (b - f) / 2);
+    $("#bookcover").offset({
+        top: c,
+        left: d
+    });
+    $("#cover_view_control").offset({
+        top: c,
+        left: d
+    });
+    $("#canvas_highlight").offset({
+        top: c,
+        left: d
+    });
+    $("#cover_drawing").offset({
+        top: c,
+        left: d
+    })
+}
+
+// 2019.03.07 yena update
+function moveOnePageContentsViewer() {
+    var a = $(window).width(),
+        b = $(window).height(),
+        c = parseFloat($("#naviOneHandle").css("top")),
+        d = parseFloat($("#naviOneHandle").css("left")),
+        e = parseFloat($("#cover_onepage").width()),
+        f = parseFloat($("#cover_onepage").height());
+    d = -(d * (e / parseFloat($("#naviHandleOneArea").width())));
+    c = -(c * (f / parseFloat($("#naviHandleOneArea").height())));
     e < a && (d = (a - e) / 2);
     f < b && (c = (b - f) / 2);
     $("#bookcover").offset({
@@ -1419,107 +1235,24 @@ function moveContentsByArrow(a) {
                 $("#canvas_highlight").css("top", a),
                 $("#cover_drawing").css("top", a)
     }
-    moveNaviHandle()
+    moveNaviHandle();
+    moveNaviOneHandle();
 }
-
-// 2019.01.28 왕예나 수정
-// function resizeOnePage() {
-//     var a = $(window).width(),
-//         b = $(window).height(),
-//         c = a / epubDB.epubInfo.width;
-//     a < b && isIpad() && (c = b / epubDB.epubInfo.height);
-//     var oneW = (a / 2) / (parseFloat(epubDB.epubInfo.width) + 58),
-//         oneH = b / (parseFloat(epubDB.epubInfo.height) + 58),
-//         e = epubDB.epubInfo.width * oneW;
-//     oneW = Math.min(oneW, oneH);
-//     oneH = epubDB.epubInfo.height * oneW;
-
-//     $("#cover_onepage").width(epubDB.epubInfo.width);
-//     $("#cover_onepage").height(epubDB.epubInfo.height);
-//     $("#frame_onepage").width(epubDB.epubInfo.width);
-//     $("#frame_onepage").height(epubDB.epubInfo.height);
-//     $(".scroll-wrapper").width(epubDB.epubInfo.width).height(epubDB.epubInfo.height);
-//     $(".scroll-wrapper-tourch").width(epubDB.epubInfo.width * c).height(epubDB.epubInfo.height * c);
-//     // detectIE() ? $("#frame_onepage").css("zoom", c) : ($("#frame_onepage").css("zoom", 1), $("#frame_onepage").css("-moz-transform", "scale(" + c + ")"), $("#frame_onepage").css("-moz-transform-origin", "0 0"), $("#frame_onepage").css("-o-transform", "scale(" + c + ")"), $("#frame_onepage").css("-o-transform-origin", "0 0"), $("#frame_onepage").css("-webkit-transform", "scale(" + c + ")"), $("#frame_onepage").css("-webkit-transform-origin", "0 0"));
-//     $(".frame_cover").width(epubDB.epubInfo.width * c).height(epubDB.epubInfo.height * c);
-//     $("#drawingCanvasOnepage").width(2 * epubDB.epubInfo.width * c);
-//     $("#drawingCanvasOnepage").height(epubDB.epubInfo.height * c);
-//     epubDB.epubInfo.height * c < b ? (b = (b - epubDB.epubInfo.height * c) / 2, $(".frame_cover").css("top", b)) : (b = 0, $(".frame_cover").css("top", 0));
-//     epubDB.epubInfo.width * c < a ? (b = (a - epubDB.epubInfo.width * c) / 2, $(".frame_cover").css("left", b)) : (b = 0, $(".frame_cover").css("left", 0));
-//     $("#drawingCanvasOnepage").parent().css("top", b);
-//     $("#drawingCanvasOnepage").parent().css("left", 0);
-//     $("#drawingCanvasOnepage").parent().css("position", "absolute");
-//     drawingCanvasOnepage.clear();
-//     drawingCanvasOnepage.setWidth(2 * epubDB.epubInfo.width * c);
-//     drawingCanvasOnepage.setHeight(epubDB.epubInfo.height * c);
-//     drawingCanvasOnepage.setZoom(c);
-//     drawingCanvasOnepage.renderAll();
-//     null != localStorage.getItem("drawing_" + epub_code) && (drawingData = JSON.parse(localStorage.getItem("drawing_" + epub_code)), null != localStorage.getItem("drawing_" + epub_code) && drawingCanvasOnepage.loadFromJSON(drawingData[currentOnePageIdx % 2 ? currentOnePageIdx - 1 : currentOnePageIdx], function() {
-//         drawingCanvasOnepage.renderAll()
-//     }));
-//     drawingCanvasOnepage.renderAll();
-//     disableSelectObjectOnepage();
-//     a = 0 == currentOnePageIdx % 2 ? 0 : epubDB.epubInfo.width * c;
-//     $("#drawingCanvasOnepage").css("left", -a)
-
-//     $("#cover_onepage").height(oneH + 20 * oneW / c - 10);
-//     // $("#cover_onepage").offset({
-//     //     left: b - 70 * oneW / 2,
-//     //     top: e - 20 * oneW / 2 - 2
-//     // })
-//     // $(window).width();
-//     // var a = $(window).height(),
-//     //     b = $(window).width() / 2,
-//     //     c = $(window).width() / 2 / (parseFloat(epubDB.epubInfo.width) + 58),
-//     //     d = $(window).height() / (parseFloat(epubDB.epubInfo.height) + 58);
-//     // c = Math.min(c, d);
-//     // var e = epubDB.epubInfo.width * c;
-//     // d = epubDB.epubInfo.height * c;
-//     // $("#bookcover").width(2 * e + 70 * c);
-//     // $("#bookcover").height(d + 20 * c);
-//     // e = 0;
-//     // d < a && (e = (a - d) / 2);
-//     // a = b - epubDB.epubInfo.width * c;
-//     // $("#bookcover").offset({
-//     //     left: a - 70 * c / 2,
-//     //     top: e - 20 * c / 2 - 2
-//     // })
-
-//     // 2019.01.18 왕예나 추가
-//     // if (isWebview) {
-//     //     $(".quickMenu .quickbtn .btnQuickText").css({
-//     //         width: 0,
-//     //         height: 0
-//     //     });
-//     //     $(".btnQuickText").parent().css("display", "none");
-//     //     // $(".btnQuickText").parent().css({
-//     //     //     width: 0,
-//     //     //     height: 0
-//     //     // });
-
-//     //     // 퀵메뉴 돌려놓기
-//     //     $(".quickMenu").css({
-//     //         left: "",
-//     //         top: ""
-//     //     });
-//     //     hideQuickMenu();
-
-// 	// 	$("#naviViewport").css({
-//     //         left: "",
-//     //         top: ""
-//     //     });
-//     // } else {
-//     //     console.log('여기');
-        
-//     //     $("#cover_onepage").css("left","");
-//     // }
-// }
 
 function resizeOnePage() {
     var a = $(window).width(),
         b = $(window).height(),
         c = a / epubDB.epubInfo.width;
+        d = b / epubDB.epubInfo.height;
     a < b && isIpad() && (c = b / epubDB.epubInfo.height);
+    viewPort.w = a;
+    viewPort.h = b;
+    // viewBox.scale *= parseInt(viewBox.zoom) / 100;
+
+    // d = epubDB.epubInfo.width * viewBox.scale;
+    // e = epubDB.epubInfo.height * viewBox.scale;
+    // viewBox.w = d;
+    // viewBox.h = e;
     $("#cover_onepage").width(a);
     $("#cover_onepage").height(b);
     $("#frame_onepage").width(epubDB.epubInfo.width);
@@ -1539,6 +1272,7 @@ function resizeOnePage() {
     drawingCanvasOnepage.setWidth(2 * epubDB.epubInfo.width * c);
     drawingCanvasOnepage.setHeight(epubDB.epubInfo.height * c);
     drawingCanvasOnepage.setZoom(c);
+    $("#cover_onepage").setZoom(c);
     drawingCanvasOnepage.renderAll();
     null != localStorage.getItem("drawing_" + epub_code) && (drawingData = JSON.parse(localStorage.getItem("drawing_" + epub_code)), null != localStorage.getItem("drawing_" + epub_code) && drawingCanvasOnepage.loadFromJSON(drawingData[currentOnePageIdx % 2 ? currentOnePageIdx - 1 : currentOnePageIdx], function() {
         drawingCanvasOnepage.renderAll()
@@ -1546,47 +1280,33 @@ function resizeOnePage() {
     drawingCanvasOnepage.renderAll();
     disableSelectObjectOnepage();
     a = 0 == currentOnePageIdx % 2 ? 0 : epubDB.epubInfo.width * c;
-    //$("#drawingCanvasOnepage").css("left", -a)
 
-    // $(".page_loader").css("top", (b - epubDB.epubInfo.height * c) / 2);
-    // $(".page_loader").css("left", 0);
-    // 2019.01.18 왕예나 추가
-    //$(".page_loader").css({
-    //     "width": epubDB.epubInfo.width * c,
-    //     "height": $(window).height(),
-    //     "left": "",
-    //     "top": b
-    // });
+    // 2019.03.08 yena update
+    if (isZooming) {
+        $("#naviOnePageViewport").show();
+    } else {
+        $("#naviOnePageViewport").hide();
+    }
+    // a = parseFloat($("#naviHandleOneArea").width()) * (100 == viewBox.zoom || e < a ? 1 : a / e);
+    // b = parseFloat($("#naviHandleOneArea").height()) * (100 == viewBox.zoom || f < b ? 1 : b / f);
+    // $("#naviOneHandle").width(a);
+    // $("#naviOneHandle").height(b);
+    // 2019.03.07 yena update
+    moveNaviOneHandle();
 
     // 2019.02.07 왕예나 수정
     $("#drawingCanvasOnepage").parent().css("left", -a)
+    $(".page_loader").width($(window).width());
+    $(".page_loader").height($(window).height());
 
     if (isWebview) {
-        $(".quickMenu .quickbtn .btnQuickText").css({
-            width: 0,
-            height: 0
-        });
+        $(".quickMenu .quickbtn .btnQuickText").css({ width: 0, height: 0 });
         $(".btnQuickText").parent().css("display", "none");
-        // $(".btnQuickText").parent().css({
-        //     width: 0,
-        //     height: 0
-        // });
 
         // 퀵메뉴 돌려놓기
-        $(".quickMenu").css({
-            left: "",
-            top: ""
-        });
+        $(".quickMenu").css({ left: "", top: "" });
+        $("#naviViewport").css({ left: "", top: "" });
         hideQuickMenu();
-
-		$("#naviViewport").css({
-            left: "",
-            top: ""
-        });
-
-        $(".page_loader").width($(window).width());
-        $(".page_loader").height($(window).height());
-        $(".page_loader").css("top", 0);
     }
 }
 
@@ -1790,22 +1510,12 @@ $(document).ready(function() {
     });
     // 2019.01.24 왕예나 수정
     loadWebLink();
-    // var toggleQuickMenu = function() {
-    //     isDraggingQuick || ($(".quickMenuContent").toggle(), "none" == $(".quickMenuContent").css("display") ? ($("#quickMenuToggle").removeClass("btnQuickClose"), $("#quickMenuToggle").addClass("btnQuickMenu")) : ($("#quickMenuToggle").removeClass("btnQuickMenu"), $("#quickMenuToggle").addClass("btnQuickClose")));
-    // }
     $(".quickMenu").draggable({
         cancel: '.clickable',
-        //delay: 50,
         start: function() {
             isDraggingQuick = true;
             $("#quickMenuToggle").off("click", toggleQuickMenu);
             if ($(".quickMenuContent").css("display") !== "none"){
-                //$(".quickMenuContent").css("right", "auto");
-                // if (window.android !== undefined) {
-                //     $(".quickMenuContent").css("left", "-170px");
-                // } else {
-                //     $(".quickMenuContent").css("left", "-230px");
-                // }
                 $(".quickMenuContent").css("left", "-230px");
                 $(".quickMenuContent").css("right", "auto");
             }
@@ -1814,27 +1524,10 @@ $(document).ready(function() {
             $("#quickMenuToggle").off("click", toggleQuickMenu);
         },
         stop: function() {
-            //var w = $(window).width();
             $(".quickMenuContent").css("right", "auto");
-            // if (window.android !== undefined) {
-            //     $(".quickMenuContent").css("left", "-170px");
-            // } else {
-            //     $(".quickMenuContent").css("left", "-230px");
-            // }
             $(".quickMenuContent").css("left", "-230px");
-
-            // if (parseInt($(".quickMenu").css("left").replace("px", "")) < (w - $(".quickMenuContent").width())) {
-            //     //$(".quickMenuContent").css("right", "auto");
-            //     //$(".quickMenuContent").css("left", "-230px");
-            //     $(".quickMenuContent").css("right", "auto");
-            // } else {
-            //     $(".quickMenuContent").css("right", "10px");
-            // }
-
-            //setTimeout(function() {
-                $("#quickMenuToggle").on("click", toggleQuickMenu);
-                isDraggingQuick = false;
-            //}, 50);
+            $("#quickMenuToggle").on("click", toggleQuickMenu);
+            isDraggingQuick = false;
         }
     });
 
@@ -1883,7 +1576,9 @@ $(document).ready(function() {
     var a = $(window).width();
     $(window).height();
     a = a - 150 - 90;
+    // 2019.03.07 yena update
     $("#naviViewport").draggable().css("top", "50px").css("left", a + "px");
+    $("#naviOnePageViewport").draggable().css("top", "50px").css("left", a + "px");
     $("#naviHandle").draggable({
         containment: "#naviHandleArea",
         scroll: !1,
@@ -1893,8 +1588,19 @@ $(document).ready(function() {
         },
         stop: function() {}
     });
+    $("#naviOneHandle").draggable({
+        containment: "#naviHandleOneArea",
+        scroll: !1,
+        start: function() {},
+        drag: function() {
+            moveOnePageContentsViewer()
+        },
+        stop: function() {}
+    });
     $("#tool_drawing").draggable();
-    $("#btn_close_navi").click(function() {
+
+    // 2019.03.07 yena update
+    $(".btn_close_navi").click(function() {
         closeZoom()
     });
     $(".page_prev").click(function() {
@@ -2008,7 +1714,17 @@ $(document).ready(function() {
         $(".page_selector").hide()
     });
     $("#btn_zoom").click(function() {
-        void 0 !== window.viewer && "undefined" !== typeof window.viewer.showZoomView ? window.viewer.showZoomView() : isZooming ? closeZoom() : (initZoom(), sideMenu.closeAll())
+        if (window.viewer !== false && "undefined" !== typeof window.viewer.showZoomView) {
+            window.viewer.showZoomView();
+        } else {
+            if (isZooming) {
+                closeZoom();
+            } else {
+                initZoom();
+                sideMenu.closeAll();
+            }
+        }
+        // void 0 !== window.viewer && "undefined" !== typeof window.viewer.showZoomView ? window.viewer.showZoomView() : isZooming ? closeZoom() : (initZoom(), sideMenu.closeAll())
     });
     $("#btn_vivasam").click(function() {
         viewer.openVivasam()
@@ -2019,9 +1735,6 @@ $(document).ready(function() {
     $("#btn_play_instrument").click(function() {
         window.viewer.openPlayInstrument()
     });
-    // $("#btn_gym").click(function() {
-    //     window.open(epubDB.getBasePath() + "/contents/common/popup/visang_gym/visang_gym.html", "")
-    // });
     // 2019.01.15 안드로이드 뷰어 왕예나 수정
     $("#btn_stopwatch").click(function() {
         if (isWebview) window.android.openInternalBrowser("/resources/contents/popup/timer/timer.html");
@@ -2039,14 +1752,15 @@ $(document).ready(function() {
         if (isWebview) window.android.openInternalBrowser("/resources/contents/popup/focus/helper.html");
         else window.open("./resources/contents/popup/focus/helper.html", "")
     });
-    // $("#btn_musicnote").click(function() {
-    //     window.open(epubDB.getBasePath() + "/contents/common/popup/MusicMaker/MusicMaker.html", "")
-    // });
-    // $("#btn_rhythm").click(function() {
-    //     window.open(epubDB.getBasePath() + "/contents/common/popup/JanguMaker/JanguMaker.html", "")
-    // });
     $(".zoomIn").click(function() {
-        300 <= viewBox.zoom || (viewBox.zoom += 50, $("#zoomSliderTxt").text(viewBox.zoom + "%"), resizeViewer())
+        // 300 <= viewBox.zoom || (viewBox.zoom += 50, $("#zoomSliderTxt").text(viewBox.zoom + "%"), resizeViewer())
+        if (viewBox.mode !== "oneside") {
+            viewBox.zoom += 50;
+            $("#zoomSliderTxt").text(viewBox.zoom + "%");
+            resizeViewer();
+        } else {
+
+        }
     });
     $(".zoomOut").click(function() {
         100 >= viewBox.zoom || (viewBox.zoom -= 50, $("#zoomSliderTxt").text(viewBox.zoom + "%"), resizeViewer())
@@ -2091,11 +1805,6 @@ $(document).ready(function() {
         // });
     });
 
-    // 2019.01.17 왕예나 추가
-    // $("#btn_folder").click(function() {
-    //     loadWebLink();
-    // });
-
     $("#btn_storage").click(function() {
         $("#popupStorage").modal();
         sideMenu.closeAll()
@@ -2135,11 +1844,6 @@ $(document).ready(function() {
         sideMenu.closeAll();
         $("#popupProgressNClose").show()
     });
-    // $("#btn_capture").click(function() {
-    //     sideMenu.closeAll();
-    //     void 0 !== window.viewer && "undefined" !== typeof window.viewer.capture && window.viewer.capture();
-    //     $(".tempAlertmessage").show()
-    // });
     $("#btn_board").click(function() {
         sideMenu.closeAll();
         showBoard()
@@ -2171,9 +1875,7 @@ $(document).ready(function() {
     $("#btnSaveProgressNClose").click(function() {
         var a = currentPageIdx,
             b = 2;
-            //c = $("#progressClassNClose option:selected").val();
         addProgress(a,b);
-        //addProgress(a);
         window.close()
     });
     $("#btnCloseProgress").click(function() {
@@ -2184,9 +1886,7 @@ $(document).ready(function() {
     $("#btnSaveProgress").click(function() {
         var a = $(".popProgressCon").val(),
             b = 1;
-        //c = $("#progressClass option:selected").val();
         addProgress(a,b);
-        //addProgress(a);
     });
     
     // 2019.01.18 왕예나 추가
@@ -2271,53 +1971,100 @@ $(document).ready(function() {
 var fX = 0,
     fY = 0;
 
-function touchMove(a) {
+// 2019.03.08 yena update
+function touchMove(e) {
     if (1 == curDown && 100 < viewBox.zoom) {
-        var b = $(window).width(),
-            c = $(window).height();
-        var d = isMobile() ? curXPos - a.touches[0].clientX : curXPos - a.clientX;
-        d = fX - d;
-        0 < d && (d = 0);
-        var e = b - parseFloat($("#cover_view_control").width());
-        d < e && (d = e);
-        b = d;
-        d = isMobile() ? curYPos - a.touches[0].clientY : curYPos - a.clientY;
-        d = fY - d;
-        0 < d && (d = 0);
-        e = c - parseFloat($("#cover_view_control").height());
-        d < e && (d = e);
-        a = d;
-        $("#bookcover").offset({
-            left: b,
-            top: a
-        });
-        $("#cover_view_control").offset({
-            left: b,
-            top: a
-        });
-        // $("#bookcover").css({
+        // var b = $(window).width(),
+        //     c = $(window).height();
+        // var d = isMobile() ? curXPos - a.touches[0].clientX : curXPos - a.clientX;
+        // d = fX - d;
+        // 0 < d && (d = 0);
+        // var e = b - parseFloat($("#cover_view_control").width());
+        // d < e && (d = e);
+        // b = d;
+        // d = isMobile() ? curYPos - a.touches[0].clientY : curYPos - a.clientY;
+        // d = fY - d;
+        // 0 < d && (d = 0);
+        // e = c - parseFloat($("#cover_view_control").height());
+        // d < e && (d = e);
+        // a = d;
+        // $("#bookcover").offset({
         //     left: b,
         //     top: a
         // });
-        // $("#cover_view_control").css({
+        // $("#cover_view_control").offset({
         //     left: b,
         //     top: a
         // });
-        $("#canvas_highlight").css("left", b).css("top", a);
-        $("#cover_drawing").css("left", b).css("top", a);
-        moveNaviHandle()
+        // $("#canvas_highlight").css("left", b).css("top", a);
+        // $("#cover_drawing").css("left", b).css("top", a);
+        // moveNaviHandle();
+        // moveNaviOneHandle();
+
+        var w = $(window).width();
+        var h = $(window).height();
+        var move_x = 0;
+        var move_y = 0;
+        var r = 0;
+        var moving = 0;
+        var cover = '';
+
+        if (viewBox.mode !== "oneside") cover = $('#cover_view_control');
+        else cover = $('#cover_onepage');
+
+        if (isMobile()) {
+            moving = (curXPos - e.touches[0].clientX);
+        } else {
+            moving = (curXPos - e.clientX);
+        }
+
+        var move_pos = (fX - moving);
+        if (move_pos > 0) move_pos = 0;
+
+        // var r = w - parseFloat($("#cover_view_control").width());
+        r = w - parseFloat(cover.width());
+
+        if (move_pos < r)
+            move_pos = r;
+
+        move_x = move_pos;
+
+        if (isMobile()) {
+            moving = (curYPos - e.touches[0].clientY);
+        } else {
+            moving = (curYPos - e.clientY);
+        }
+
+        move_pos = (fY - moving);
+        if (move_pos > 0) move_pos = 0;
+
+        //var r = h - parseFloat($("#cover_view_control").height());
+        r = h - parseFloat(cover.height());
+
+        if (move_pos < r)
+            move_pos = r;
+
+        move_y = move_pos;
+
+        $("#bookcover").offset({ left: move_x, top: move_y });
+        cover.offset({ left: move_x, top: move_y });
+        $("#canvas_highlight").css("left", move_x).css("top", move_y);
+        $("#cover_drawing").css("left", move_x).css("top", move_y);
+
+        moveNaviHandle();
     }
 }
 
+// 2019.03.08 yena update
 function touchDown(a) {
-    fX = parseFloat($("#cover_view_control").offset().left);
-    fY = parseFloat($("#cover_view_control").offset().top);
+    var cover = '';
+    if (viewBox.mode !== "oneside") cover = $('#cover_view_control');
+    else cover = $('#cover_onepage');
+
+    fX = parseFloat(cover.offset().left);
+    fY = parseFloat(cover.offset().top);
     curDown = !0;
     isMobile() ? (curXPos = a.touches[0].clientX, curYPos = a.touches[0].clientY) : (curXPos = a.clientX, curYPos = a.clientY);
     lastXPos = curXPos;
     lastYPos = curYPos
 };
-
-
-
-
